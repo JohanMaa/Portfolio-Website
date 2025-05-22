@@ -32,11 +32,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollToTop />
 
           {/* Running Text Fixed Bottom */}
-          <div className="fixed bottom-0 left-0 w-full bg-black text-white dark:bg-white dark:text-black py-2 z-50 overflow-hidden">
+          {/* <div className="fixed bottom-0 left-0 w-full bg-black text-white dark:bg-white dark:text-black py-2 z-50 overflow-hidden">
             <div className="whitespace-nowrap animate-marquee px-4 font-medium text-sm">
               🚧 Website work in progress • Konten, desain, dan fitur dapat berubah sewaktu-waktu • Nantikan versi finalnya! 🚀 Website sedang dalam tahap pengembangan • Konten, desain, dan fitur dapat berubah sewaktu-waktu • Nantikan versi finalnya! 🚀
             </div>
-          </div>
+          </div> */}
         </div>
       </body>
     </html>
