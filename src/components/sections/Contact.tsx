@@ -37,7 +37,7 @@ export default function Contact() {
         transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        Feel free to reach out anytime — let’s create something great together 🌟
+        Feel free to reach out anytime — let’s create something great together
       </motion.p>
 
       {/* Contact Cards */}

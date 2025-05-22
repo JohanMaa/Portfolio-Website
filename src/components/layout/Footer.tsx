@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="flex space-x-4 text-2xl">
             <GlowIcon href="https://twitter.com/" icon={<FaTwitter />} />
             <GlowIcon href="https://www.linkedin.com/in/johan-maulana-26b051305/" icon={<FaLinkedin />} />
-            <GlowIcon href="https://github.com/" icon={<FaGithub />} />
+            <GlowIcon href="https://github.com/JohanMaa" icon={<FaGithub />} />
             <GlowIcon href="https://instagram.com/jhnmlna._" icon={<FaInstagram />} />
           </div>
         </div>

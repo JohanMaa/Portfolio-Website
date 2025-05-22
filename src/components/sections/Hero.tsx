@@ -12,7 +12,7 @@ export default function Hero() {
     words: [
       'Full Stack Developer',
       'Mobile App Builder',
-      'Cybersecurity Enthusiast',
+      'Penetration Tester',
       'Tech Problem Solver',
     ],
     loop: true,
@@ -89,10 +89,10 @@ export default function Hero() {
 
           {/* Social Icons */}
           <div className="mt-6 flex gap-4 justify-center md:justify-start">
-            <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
+            <a href="https://github.com/JohanMaa" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
+            <a href="https://www.linkedin.com/in/johan-maulana-26b051305/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
               <FaLinkedin />
             </a>
           </div>

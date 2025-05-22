@@ -36,7 +36,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-wider text-white hover:text-cyan-400 transition-all glow-text"
+          className="text-2xl font-bold tracking-wide transition-all glow-text bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
         >
           <span className="text-cyan-400">Hannz</span>
         </Link>
