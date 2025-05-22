@@ -1,6 +1,6 @@
 'use client';
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Instagram, Phone } from "lucide-react";
+import { Github, Linkedin, Instagram, Phone } from "lucide-react";
 import { SparklesCore } from "../ui/sparkles";
 import { Tilt } from 'react-tilt';
 
@@ -56,10 +56,10 @@ export default function Contact() {
           borderColor="border-pink-500"
         />
         <ContactCard
-          icon={<Mail className="text-blue-400 w-6 h-6" />}
-          title="Email"
-          value="johanemaulana@gmail.com"
-          href="mailto:johanemaulana@gmail.com"
+          icon={<Linkedin className="text-blue-400 w-6 h-6" />}
+          title="LinkedIn"
+          value="Johan Maulana"
+          href="https://www.linkedin.com/in/johan-maulana-26b051305/"
           borderColor="border-blue-500"
         />
         <ContactCard
