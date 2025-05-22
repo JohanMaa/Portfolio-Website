@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #f1f5f9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === 🔮 Neon Glow Effect for Text === */
+.glow-text {
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+}
+
+/* === ✨ Hover Underline Gradient Animation === */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #06b6d4, #8b5cf6); /* cyan to violet */
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* === 🌈 Text Gradient Utility === */
+.text-gradient {
+  background: linear-gradient(to right, #0ff, #f0f, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === 🌌 Background Blobs (Cyber aura) === */
+.background-blobs::before,
+.background-blobs::after {
+  content: "";
+  position: fixed;
+  border-radius: 9999px;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(140px);
+  mix-blend-mode: screen;
+  transition: all 0.3s ease;
+}
+
+.background-blobs::before {
+  width: 550px;
+  height: 550px;
+  top: -180px;
+  left: -180px;
+  background: radial-gradient(circle, #22d3ee, #0ea5e9); /* cyan */
+}
+
+.background-blobs::after {
+  width: 650px;
+  height: 650px;
+  bottom: -220px;
+  right: -220px;
+  background: radial-gradient(circle, #a78bfa, #8b5cf6); /* purple */
+}
+
+/* === ⬇️ Slide-down animation for mobile menu === */
+@keyframes slide-down {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+/* === ⏩ Marquee animation (optional use) === */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
