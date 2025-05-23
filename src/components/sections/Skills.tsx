@@ -1,5 +1,5 @@
 'use client';
-import { Code2, Smartphone, ShieldCheck } from 'lucide-react';
+import { Code2, Smartphone, ShieldCheck, Bug } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from '../ui/sparkles';
 
@@ -25,7 +25,7 @@ const skills = [
   },
   {
     title: "Vulnerability Assessment",
-    icon: ShieldCheck,
+    icon: Bug,
     description: "Audit keamanan dan pemindaian kerentanan aplikasi secara menyeluruh.",
     stacks: ["Kali Linux", "Nmap", "Burp Suite", "Wireshark"],
   },

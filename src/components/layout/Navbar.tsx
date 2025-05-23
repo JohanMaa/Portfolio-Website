@@ -36,9 +36,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-wide transition-all glow-text bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
+          className="text-2xl font-bold tracking-wide transition-al text-transparent bg-clip-text"
         >
-          <span className="text-cyan-400">Hannz</span>
+          <span className=" text-cyan-400">Hannz</span>
         </Link>
 
         {/* Center Nav */}
