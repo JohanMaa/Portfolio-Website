@@ -85,7 +85,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             <a
-              href="#projects"
+              href="#portfolio"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-105 transition flex items-center gap-2"
             >
               <FaArrowRight /> Lihat Proyek
