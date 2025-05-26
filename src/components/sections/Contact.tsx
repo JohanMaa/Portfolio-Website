@@ -1,24 +1,27 @@
 'use client';
+
 import { motion } from "framer-motion";
 import { Github, Linkedin, Instagram, Phone } from "lucide-react";
 import { SparklesCore } from "../ui/sparkles";
 import { Tilt } from 'react-tilt';
 
+// Komponen utama Contact
 export default function Contact() {
   return (
+    // Bagian utama section contact
     <section id="contact" className="relative w-full py-32 px-6">
-      {/* Sparkles Background */}
+      {/* Background Sparkles */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={80}
+          particleDensity={500}
           className="w-full h-full"
         />
       </div>
 
-      {/* Judul */}
+      {/* Judul section*/}
       <motion.h2
         className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3"
         initial={{ opacity: 0, y: 40 }}
@@ -95,6 +98,7 @@ function ContactCard({
   href: string;
   borderColor: string;
 }) {
+  // Mapping warna shadow berdasarkan border
   const shadowColorMap: Record<string, string> = {
     "border-pink-500": "hover:shadow-pink-500/70",
     "border-blue-500": "hover:shadow-blue-500/70",
@@ -103,6 +107,7 @@ function ContactCard({
   };
 
   return (
+    // Efek tilt saat hover menggunakan react-tilt
     <Tilt
       options={{
         max: 15,
@@ -110,6 +115,7 @@ function ContactCard({
         speed: 400,
       }}
     >
+      {/* Link ke platform eksternal */}
       <a
         href={href}
         target="_blank"

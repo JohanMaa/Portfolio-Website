@@ -1,19 +1,21 @@
 "use client";
 import { Eye } from "lucide-react";
 
+// Tipe properti (props) yang dapat diterima oleh ProjectCard
 interface ProjectCardProps {
-  title: string;
-  imageUrl: string;
-  description?: string;
-  tech?: string[];
+  title: string; // Judul Proyek
+  imageUrl: string; // URL gambar sebagai thumbnail proyek
+  description?: string; // Opsional: deskripsi singkat
+  tech?: string[]; // Opsional : daftar teknologi yang digunakan
   onClick?: () => void; // baru ditambahkan
 }
 
+// Komponen kartu proyek yang interaktif dan stylish
 export default function ProjectCard({
   title,
   imageUrl,
   description,
-  tech = [],
+  tech = [], // Default array kosong jika tidak ada teknologi
   onClick,
 }: ProjectCardProps) {
   return (
@@ -24,12 +26,13 @@ export default function ProjectCard({
       {/* Gambar Project */}
       <div
         className="h-56 bg-cover bg-center"
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        style={{ backgroundImage: `url(${imageUrl})` }} // Inline styling untuk gambar background
       />
 
       {/* Konten Card */}
       <div className="p-4 space-y-2 text-white">
         <h3 className="text-lg font-bold">{title}</h3>
+        {/* Deskripsi, hanya ditampilkan jika tersedia */}
         {description && (
           <p className="text-sm text-white/80 line-clamp-3">
             {description}

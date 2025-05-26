@@ -3,11 +3,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
+// Metadata untuk dokumen HTML, digunakan oleh Next.js untuk SEO
 export const metadata = {
   title: "Johan Portfolio",
   description: "Personal portfolio built with Next.js, Tailwind, and TypeScript",
 };
 
+// Komponen RootLayout yang membungkus seluruh halaman dengan Layout global
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

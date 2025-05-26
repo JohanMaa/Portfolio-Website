@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SparklesCore } from "../ui/sparkles";
 
-
+// Tipe data untuk representasi struktur proyek
 interface Project {
   title: string;
   imageUrl: string;
@@ -15,9 +15,12 @@ interface Project {
   description: string;
 }
 
+// Komponen utama untuk section Projects
 export default function ProjectsSection() {
+  // State untuk menyimpan proyek yang sedang dipilih
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // Data dummy untuk preview proyek
   const previewProjects: Project[] = [
     {
       title: "AI-Powered Attendance System",
@@ -38,13 +41,12 @@ export default function ProjectsSection() {
       description: "Aplikasi mobile monitoring kualitas air kolam lele secara real-time.",
     },
   ];
-
+  
   return (
     <section
       id="projects"
-      className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-24 relative"
+      className="w-full flex flex-col items-center text-center px-4 pt-0 pb-24 relative"
     >
-
       {/* Sparkles Background */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <SparklesCore
@@ -56,20 +58,8 @@ export default function ProjectsSection() {
         />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text flex items-center justify-center gap-2">
-          <Sparkles className="w-8 h-8 text-blue-500" />
-          Featured Projects
-        </h2>
-      </motion.div>
-
       {/* Grid Project */}
-      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
         {previewProjects.map((project, index) => (
           <motion.div
             key={index}
@@ -104,7 +94,6 @@ export default function ProjectsSection() {
           <ArrowRight className="w-5 h-5" />
         </Link>
       </motion.div>
-
 
       {/* Modal Detail Project */}
       <AnimatePresence>

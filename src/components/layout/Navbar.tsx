@@ -10,20 +10,22 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Daftar tautan navigasi link utama
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
+    { href: "#portfolio", label: "Portfolio" },
     { href: "#contact", label: "Contact" },
   ];
 
+  // Efek samping: mengecek apakah halaman sedagn discroll untuk menerapkan efek visual navbar
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 0); // Update state jika user scroll
     };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll); // Tambah event listener saat scroll
+    handleScroll(); // Jalankan sekali saat komponen dimuat 
+    return () => window.removeEventListener("scroll", handleScroll); // Cleanup listener saat komponen unmount
   }, []);
 
   return (

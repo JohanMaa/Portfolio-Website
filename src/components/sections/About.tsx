@@ -1,25 +1,29 @@
 "use client";
-import { motion } from "framer-motion";
-import { SparklesCore } from "../ui/sparkles";
-import { FaCode, FaMobileAlt, FaShieldAlt } from "react-icons/fa";
-import Tilt from "react-parallax-tilt";
-import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";// import animasi dari framer-motion
+import { SparklesCore } from "../ui/sparkles"; // Komponen efek partikel
+import { FaCode, FaMobileAlt, FaShieldAlt } from "react-icons/fa"; // Import ikon
+import Tilt from "react-parallax-tilt"; // Efek tilt untuk kartu
+import { TypeAnimation } from "react-type-animation"; // Efek ketik untuk kutipan
 
+// Komponen utama AboutMe
 export default function AboutMe() {
   return (
+    // Section utama About Me
     <section id="about" className="relative py-28 overflow-hidden">
-      {/* Sparkles Background */}
+      {/* Background Sparkles */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={80}
+          particleDensity={500}
           className="w-full h-full"
         />
       </div>
 
+      {/* Kontaine rutama dengan animasi fade-in + up */}
       <div className="container mx-auto px-6 relative z-10">
+        {/* Wrapper dengan animasi fade-in + up */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,6 +31,7 @@ export default function AboutMe() {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-5xl mx-auto bg-white/10 dark:bg-white/5 backdrop-blur-xl p-12 rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.25)] border border-white/10"
         >
+          {/* Judul "About Me" dengan efek gradien dan animasi */}
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -36,6 +41,7 @@ export default function AboutMe() {
             About Me
           </motion.h2>
 
+          {/* Deskripsi singkat tentang Johan */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,9 +51,9 @@ export default function AboutMe() {
             Halo! Saya <span className="font-semibold text-blue-400">Johan Maulana</span>, seorang kreator digital yang suka menciptakan aplikasi modern, interaktif, dan aman. Saya percaya teknologi adalah jembatan antara ide dan solusi nyata.
           </motion.p>
 
-          {/* Card Sections */}
+          {/* Card Sections, Grid untuk kartu keahlian */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[ // Reuseable array for cleaner code
+            {[ // Reuseable array for cleaner code, Mapping setiap item ke dalam motion + tilt card
               {
                 icon: <FaCode className="text-4xl mb-4 text-cyan-400" />,
                 title: "Web Development",
@@ -64,14 +70,18 @@ export default function AboutMe() {
                 desc: "Mengintegrasikan keamanan dari awal pengembangan serta aktif mendalami dunia ethical hacking.",
               },
             ].map((item, index) => (
+              //Kartu animasi untuk setiap skill
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
               >
+                {/* Efek tilt untuk kartu */}
                 <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={600}>
+                  {/* Kontainer baru */}
                   <div className="p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] transition-all duration-300 hover:scale-[1.03]">
+                    {/* Isi kartu: ikon, judul, deskripsi */}
                     <div className="flex flex-col items-center text-center text-white">
                       {item.icon}
                       <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -83,7 +93,7 @@ export default function AboutMe() {
             ))}
           </div>
 
-          {/* Animated Quote */}
+          {/* Animated Quote dan TypeAnimation animasi*/}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -13,6 +13,7 @@ import {
 } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
+// Komponen utama footer
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-gray-300 py-16 px-6 overflow-hidden">
@@ -48,7 +49,7 @@ export default function Footer() {
         <FooterSection title="Quick Links" items={[
           { label: 'Home', href: '#' },
           { label: 'About', href: '#about' },
-          { label: 'Skills', href: '#skills' },
+          { label: 'Portfolio', href: '#portfolio' },
           { label: 'Contact', href: '#contact' },
         ]} />
 

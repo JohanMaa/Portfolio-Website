@@ -44,7 +44,7 @@ const projectDetails = [
 const roles = ["All", ...new Set(projectDetails.map((p) => p.role))];
 
 export default function ProjectsPage() {
-  const [selectedRole, setSelectedRole] = useState("All");
+  const [selectedRole, setSelectedRole] = useState("All"); // State untuk menyimpan role yang dipilih
 
   // Filter berdasarkan role
   const filteredProjects =
@@ -86,7 +86,7 @@ export default function ProjectsPage() {
           {roles.map((role) => (
             <button
               key={role}
-              onClick={() => setSelectedRole(role)}
+              onClick={() => setSelectedRole(role)} // Set role yang dipilih
               className={`px-4 py-2 rounded-full border ${
                 selectedRole === role
                   ? "bg-purple-500 text-white border-purple-500 shadow-lg"
@@ -137,6 +137,7 @@ export default function ProjectsPage() {
             ))}
           </motion.div>
         ) : (
+          // Tampilkan pesan jika tidak ada proyek yang cocok dengan filter
           <p className="text-center text-gray-400 mt-20">
             Tidak ada proyek untuk kategori ini.
           </p>

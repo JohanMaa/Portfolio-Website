@@ -1,13 +1,17 @@
-'use client';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { SparklesCore } from '../ui/sparkles';
-import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa';
-import { SiJavascript, SiNextdotjs, SiTailwindcss, SiReact, SiNodedotjs } from 'react-icons/si';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
+'use client'; // Menentukan bahwa komponen ini menggunakan fitur client-side rendering
+
+// Import library dan komponen yang dibutuhkan
+import { motion } from 'framer-motion'; // Animasi
+import Image from 'next/image'; // Untuk optimasi gambar Next.js
+import { SparklesCore } from '../ui/sparkles'; // Komponen efek background sparkles
+import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa'; // Ikon dari react-icon
+import { SiJavascript, SiNextdotjs, SiTailwindcss, SiReact, SiNodedotjs } from 'react-icons/si'; // Ikon tech stack
+import { useTypewriter, Cursor } from 'react-simple-typewriter'; // Efek typewriting
 import React from 'react';
 
+// Komponen utama hero 
 export default function Hero() {
+  // Hook untuk efek typewriter
   const [text] = useTypewriter({
     words: [
       'Full Stack Developer',
@@ -22,6 +26,7 @@ export default function Hero() {
   });
 
   return (
+    // SECTION: Hero Utama
     <section
       id="hero"
       className="relative w-full min-h-screen flex items-center justify-center px-6 pb-20 overflow-hidden"
@@ -37,9 +42,11 @@ export default function Hero() {
         />
       </div>
 
+      { /* Kontainer utema hero */}
       <div className="z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Left: Text */}
         <div className="text-center md:text-left flex-1">
+          {/* Nama dengan animasi */}
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
             initial={{ opacity: 0, y: -30 }}
@@ -48,6 +55,8 @@ export default function Hero() {
           >
             Johan Maulana
           </motion.h1>
+
+          {/* Efek typewritter di hero section */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,6 +67,7 @@ export default function Hero() {
             <Cursor cursorStyle="|" />
           </motion.div>
 
+          {/* Deskripsi Singkat */}
           <motion.p
             className="mt-4 text-lg text-gray-300 max-w-xl"
             initial={{ opacity: 0, y: 20 }}
@@ -67,6 +77,7 @@ export default function Hero() {
             Saya membangun solusi digital modern berbasis web & mobile dengan keamanan sebagai fondasi utama.
           </motion.p>
 
+          {/* Tombol aksi (Lihat proyek & Hubungi Saya) */}
           <motion.div
             className="mt-8 flex flex-wrap gap-4 items-center"
             initial={{ opacity: 0 }}
@@ -113,6 +124,8 @@ export default function Hero() {
             transition: { duration: 0.4 },
           }}
         >
+
+          {/* Konten kartu profile */}
           <div className="relative z-10 text-center space-y-4">
             <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-blue-400 shadow-lg">
               <Image
@@ -123,8 +136,12 @@ export default function Hero() {
                 className="object-cover"
               />
             </div>
+
+            {/* Nama & Role */}
             <h3 className="text-xl font-bold">Johan Maulana</h3>
             <p className="text-sm text-blue-300">Full Stack Developer</p>
+            
+            {/* Teknologi yang digunakan */}
             <div className="flex flex-wrap justify-center gap-2 text-sm font-medium mt-3">
               <span className="flex items-center gap-1 px-2 py-1 bg-blue-700/50 rounded hover:scale-105 transition">
                 <SiReact className="text-cyan-300" /> React
