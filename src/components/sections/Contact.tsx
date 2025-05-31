@@ -10,20 +10,20 @@ export default function Contact() {
   return (
     // Bagian utama section contact
     <section id="contact" className="relative w-full py-32 px-6">
-      {/* Background Sparkles */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Holographic Particle Background */}
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={500}
+          particleDensity={200}
           className="w-full h-full"
         />
-      </div>
+      </div>  */}
 
       {/* Judul section*/}
       <motion.h2
-        className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3"
+        className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-3 animate-pulse"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -52,28 +52,28 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <ContactCard
-          icon={<Instagram className="text-pink-400 w-6 h-6" />}
+          icon={<Instagram className="text-pink-500 w-6 h-6" />}
           title="Instagram"
           value="@jhnmlna._"
           href="https://instagram.com/jhnmlna._"
           borderColor="border-pink-500"
         />
         <ContactCard
-          icon={<Linkedin className="text-blue-400 w-6 h-6" />}
+          icon={<Linkedin className="text-blue-500 w-6 h-6" />}
           title="LinkedIn"
           value="Johan Maulana"
           href="https://www.linkedin.com/in/johan-maulana-26b051305/"
           borderColor="border-blue-500"
         />
         <ContactCard
-          icon={<Phone className="text-green-400 w-6 h-6" />}
+          icon={<Phone className="text-green-500 w-6 h-6" />}
           title="WhatsApp"
           value="+62 818-0232-8268"
           href="https://wa.me/6281802328268"
           borderColor="border-green-500"
         />
         <ContactCard
-          icon={<Github className="text-gray-300 w-6 h-6" />}
+          icon={<Github className="text-gray-500 w-6 h-6" />}
           title="GitHub"
           value="@Coming Soon"
           href="https://github.com/"
@@ -100,10 +100,10 @@ function ContactCard({
 }) {
   // Mapping warna shadow berdasarkan border
   const shadowColorMap: Record<string, string> = {
-    "border-pink-500": "hover:shadow-pink-500/70",
-    "border-blue-500": "hover:shadow-blue-500/70",
-    "border-green-500": "hover:shadow-green-500/70",
-    "border-gray-500": "hover:shadow-gray-500/60",
+    "border-pink-500": "hover:shadow-pink-300/70",
+    "border-blue-500": "hover:shadow-blue-300/70",
+    "border-green-500": "hover:shadow-green-300/70",
+    "border-gray-500": "hover:shadow-gray-300/70",
   };
 
   return (

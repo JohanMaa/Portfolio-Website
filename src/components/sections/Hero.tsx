@@ -1,23 +1,60 @@
-'use client'; // Menentukan bahwa komponen ini menggunakan fitur client-side rendering
+/* eslint-disable react/no-unknown-property */
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { SparklesCore } from "../ui/sparkles";
+import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
+import { SiJavascript, SiNextdotjs, SiTailwindcss, SiReact, SiNodedotjs } from "react-icons/si";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import React, { useState } from "react";
 
-// Import library dan komponen yang dibutuhkan
-import { motion } from 'framer-motion'; // Animasi
-import Image from 'next/image'; // Untuk optimasi gambar Next.js
-import { SparklesCore } from '../ui/sparkles'; // Komponen efek background sparkles
-import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa'; // Ikon dari react-icon
-import { SiJavascript, SiNextdotjs, SiTailwindcss, SiReact, SiNodedotjs } from 'react-icons/si'; // Ikon tech stack
-import { useTypewriter, Cursor } from 'react-simple-typewriter'; // Efek typewriting
-import React from 'react';
+interface TechStackItem {
+  name: string;
+  icon: React.ElementType;
+  color: string;
+}
 
-// Komponen utama hero 
+interface ProfileProps {
+  imageSrc: string;
+  name: string;
+  role: string;
+  techStack: TechStackItem[];
+}
+
+const profile: ProfileProps = {
+  imageSrc: "/team/jm1.png",
+  name: "Johan Maulana",
+  role: "Full Stack Developer",
+  techStack: [
+    { name: "React", icon: SiReact, color: "bg-blue-700/60 hover:bg-blue-600/80" },
+    { name: "Next.js", icon: SiNextdotjs, color: "bg-purple-700/60 hover:bg-purple-600/80" },
+    { name: "Tailwind", icon: SiTailwindcss, color: "bg-cyan-700/60 hover:bg-cyan-600/80" },
+    { name: "Node.js", icon: SiNodedotjs, color: "bg-slate-700/60 hover:bg-slate-600/80" },
+    { name: "JavaScript", icon: SiJavascript, color: "bg-yellow-600/60 hover:bg-yellow-500/80" },
+  ],
+};
+
 export default function Hero() {
-  // Hook untuk efek typewriter
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    setTilt({ x: y * 10, y: x * 10 });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
   const [text] = useTypewriter({
     words: [
-      'Full Stack Developer',
-      'Mobile App Builder',
-      'Penetration Tester',
-      'Tech Problem Solver',
+      "Full Stack Developer",
+      "Mobile App Builder",
+      "Penetration Tester",
+      "Tech Problem Solver",
+      "Digital Forensic",
     ],
     loop: true,
     typeSpeed: 50,
@@ -26,37 +63,21 @@ export default function Hero() {
   });
 
   return (
-    // SECTION: Hero Utama
     <section
       id="hero"
       className="relative w-full min-h-screen flex items-center justify-center px-6 pb-20 overflow-hidden"
     >
-      {/* Background Sparkles */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1.2}
-          particleDensity={500}
-          className="w-full h-full"
-        />
-      </div>
-
-      { /* Kontainer utema hero */}
       <div className="z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Left: Text */}
         <div className="text-center md:text-left flex-1">
-          {/* Nama dengan animasi */}
           <motion.h1
-            className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
+            className="text-5xl md:text6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text animate-pulse"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             Johan Maulana
           </motion.h1>
-
-          {/* Efek typewritter di hero section */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,20 +87,16 @@ export default function Hero() {
             {text}
             <Cursor cursorStyle="|" />
           </motion.div>
-
-          {/* Deskripsi Singkat */}
           <motion.p
             className="mt-4 text-lg text-gray-300 max-w-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Saya membangun solusi digital modern berbasis web & mobile dengan keamanan sebagai fondasi utama.
+            I develop secure-by-default web and mobile solutions, blending modern technology with strong security principles.
           </motion.p>
-
-          {/* Tombol aksi (Lihat proyek & Hubungi Saya) */}
           <motion.div
-            className="mt-8 flex flex-wrap gap-4 items-center"
+            className="mt-8 flex flex-wrap gap-4 items-center justify-center md:justify-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -92,18 +109,26 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 rounded-full border border-blue-400 text-blue-300 hover:bg-blue-800 transition"
+              className="px-6 py-3 rounded-full border border-blue-400 text-blue-300 hover:bg-blue-800/30 transition"
             >
               Hubungi Saya
             </a>
           </motion.div>
-
-          {/* Social Icons */}
           <div className="mt-6 flex gap-4 justify-center md:justify-start">
-            <a href="https://github.com/JohanMaa" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
+            <a
+              href="https://github.com/JohanMaa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white text-xl"
+            >
               <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/johan-maulana-26b051305/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white text-xl">
+            <a
+              href="https://www.linkedin.com/in/johan-maulana-26b051305/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white text-xl"
+            >
               <FaLinkedin />
             </a>
           </div>
@@ -111,53 +136,62 @@ export default function Hero() {
 
         {/* Right: Profile Card */}
         <motion.div
-          className="flex-1 relative p-6 rounded-2xl text-white backdrop-blur-md bg-white/5 border border-blue-300 max-w-sm shadow-xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: 0.4,
-            ease: 'easeOut',
-          }}
+          className="flex-1 relative p-6 text-white backdrop-blur-lg max-w-sm mx-auto rounded-3xl shadow-2xl border border-blue-500/40 overflow-hidden"
+          initial={{ opacity: 0, y: 40, rotateX: 15 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
           whileHover={{
-            scale: 1.02,
+            scale: 1.07,
+            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.7)",
             transition: { duration: 0.4 },
           }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            perspective: 1100,
+            transformStyle: "preserve-3d",
+            transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          }}
         >
+          {/* Glowing aura ring around profile picture */}
+          <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-400 via-purple-600 to-pink-500 opacity-60 blur-3xl animate-pulse" />
 
-          {/* Konten kartu profile */}
-          <div className="relative z-10 text-center space-y-4">
-            <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-blue-400 shadow-lg">
+          {/* Profile Card Content */}
+          <div className="relative z-20 text-center space-y-5">
+            <motion.div
+              className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-blue-400 shadow-lg"
+              style={{ transformStyle: "preserve-3d" }}
+              initial={{ scale: 0.85, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
               <Image
-                src="/team/jm.png"
-                alt="Johan"
-                width={96}
-                height={96}
-                className="object-cover"
+                src={profile.imageSrc}
+                alt={profile.name}
+                width={112}
+                height={112}
+                className="object-cover rounded-full"
+                priority
               />
-            </div>
+            </motion.div>
 
-            {/* Nama & Role */}
-            <h3 className="text-xl font-bold">Johan Maulana</h3>
-            <p className="text-sm text-blue-300">Full Stack Developer</p>
-            
-            {/* Teknologi yang digunakan */}
-            <div className="flex flex-wrap justify-center gap-2 text-sm font-medium mt-3">
-              <span className="flex items-center gap-1 px-2 py-1 bg-blue-700/50 rounded hover:scale-105 transition">
-                <SiReact className="text-cyan-300" /> React
-              </span>
-              <span className="flex items-center gap-1 px-2 py-1 bg-purple-700/50 rounded hover:scale-105 transition">
-                <SiNextdotjs className="text-white" /> Next.js
-              </span>
-              <span className="flex items-center gap-1 px-2 py-1 bg-cyan-700/50 rounded hover:scale-105 transition">
-                <SiTailwindcss className="text-white" /> Tailwind
-              </span>
-              <span className="flex items-center gap-1 px-2 py-1 bg-slate-700/50 rounded hover:scale-105 transition">
-                <SiNodedotjs className="text-green-300" /> Node.js
-              </span>
-              <span className="flex items-center gap-1 px-2 py-1 bg-yellow-600/50 rounded hover:scale-105 transition">
-                <SiJavascript className="text-white" /> JavaScript
-              </span>
+            <h2 className="text-2xl font-bold text-white drop-shadow-lg">{profile.name}</h2>
+            <p className="text-cyan-400 font-medium tracking-wide">{profile.role}</p>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap justify-center gap-4 mt-3">
+              {profile.techStack.map(({ name, icon: Icon, color }) => (
+                <motion.div
+                  key={name}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center cursor-default shadow-lg transition-transform hover:scale-110 ${color} text-white`}
+                  title={name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + Math.random() * 0.3 }}
+                >
+                  <Icon className="text-xl" />
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>

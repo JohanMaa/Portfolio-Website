@@ -23,22 +23,22 @@ export default function PortfolioShowcase() {
       id="portfolio"
       className="relative py-20 px-4 md:px-10 lg:px-20 text-white overflow-hidden scroll-mt-1"
     >
-      {/* Background Sparkles */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Holographic Particle Background */}
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={500}
+          particleDensity={200}
           className="w-full h-full"
         />
-      </div>
+      </div>  */}
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 bg-grid-small-white/[0.05] z-0 pointer-events-none" />
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mx-auto text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-4 animate-pulse">
           Portfolio Showcase
         </h2>
         <p className="text-base md:text-lg text-white/80">

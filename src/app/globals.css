@@ -63,6 +63,7 @@ body {
   filter: blur(140px);
   mix-blend-mode: screen;
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .background-blobs::before {
@@ -110,4 +111,38 @@ body {
 .animate-marquee {
   display: inline-block;
   animation: marquee 20s linear infinite;
+}
+
+/* === ♿️ Reduced motion support === */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-down,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+
+.neon-glow {
+  text-shadow:
+    0 0 5px #7fdbff,
+    0 0 10px #7fdbff,
+    0 0 20px #00f0ff,
+    0 0 30px #00e9ff,
+    0 0 40px #00b6ff,
+    0 0 50px #00aaff,
+    0 0 75px #00aaff;
+}
+
+.glow-purple {
+  box-shadow: 0 0 8px 2px #9f7fff;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 8px 2px #00d4ff;
+}
+
+.neon-button {
+  box-shadow:
+    0 0 8px #3b82f6,
+    0 0 15px #3b82f6;
 }

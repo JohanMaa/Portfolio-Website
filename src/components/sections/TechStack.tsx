@@ -41,16 +41,16 @@ export default function TechStack() {
       id="techstack"
       className="w-full flex flex-col items-center text-center px-4 pt-0 pb-24 relative"
     >
-      {/* Background Sparkles */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Holographic Particle Background */}
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={500}
+          particleDensity={200}
           className="w-full h-full"
         />
-      </div>
+      </div>  */}
 
       {/* Grid Tech Stack */}
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">

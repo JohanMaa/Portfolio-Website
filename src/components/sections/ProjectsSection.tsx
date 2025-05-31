@@ -47,16 +47,16 @@ export default function ProjectsSection() {
       id="projects"
       className="w-full flex flex-col items-center text-center px-4 pt-0 pb-24 relative"
     >
-      {/* Sparkles Background */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Holographic Particle Background */}
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={80}
+          particleDensity={200}
           className="w-full h-full"
         />
-      </div>
+      </div>  */}
 
       {/* Grid Project */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">

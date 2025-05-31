@@ -1,118 +1,176 @@
+/* eslint-disable react/no-unknown-property */
 "use client";
-import { motion } from "framer-motion";// import animasi dari framer-motion
-import { SparklesCore } from "../ui/sparkles"; // Komponen efek partikel
-import { FaCode, FaMobileAlt, FaShieldAlt } from "react-icons/fa"; // Import ikon
-import Tilt from "react-parallax-tilt"; // Efek tilt untuk kartu
-import { TypeAnimation } from "react-type-animation"; // Efek ketik untuk kutipan
+import { motion } from "framer-motion";
+import { FaDownload, FaCode, FaShieldAlt, FaMobileAlt } from "react-icons/fa";
+import { useState } from "react";
+import { TbBinaryTree } from "react-icons/tb";
+import { SparklesCore } from "../ui/sparkles";
 
-// Komponen utama AboutMe
-export default function AboutMe() {
+export default function About() {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    setTilt({ x: y * 10, y: x * 10 });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  const skills = [
+    {
+      name: "Web Development",
+      icon: FaCode,
+      description:
+        "Building responsive and performant web applications using React, Next.js, and Tailwind CSS.",
+    },
+    {
+      name: "Mobile Apps",
+      icon: FaMobileAlt,
+      description:
+        "Creating cross-platform mobile applications with React Native and Flutter.",
+    },
+    {
+      name: "Penetration Testing",
+      icon: FaShieldAlt,
+      description:
+        "Performing penetration testing and securing applications against vulnerabilities.",
+    },
+    {
+      name: "Digital Forensic",
+      icon: TbBinaryTree,
+      description:
+        "Analyzing digital evidence to uncover and investigate cyber incidents or criminal activities.",
+    },
+  ];
+
   return (
-    // Section utama About Me
-    <section id="about" className="relative py-28 overflow-hidden">
-      {/* Background Sparkles */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1.2}
-          particleDensity={500}
-          className="w-full h-full"
-        />
-      </div>
+    <section
+      id="about"
+      className="relative w-full py-20 px-6 overflow-hidden"
+    >
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-96 w-[60vw] bg-gradient-radial from-cyan-500/20 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none z-0" />
 
-      {/* Kontaine rutama dengan animasi fade-in + up */}
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Wrapper dengan animasi fade-in + up */}
+      <div className="max-w-7xl mx-auto flex flex-col items-center gap-12 z-10 relative">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          className="text-center"
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-5xl mx-auto bg-white/10 dark:bg-white/5 backdrop-blur-xl p-12 rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.25)] border border-white/10"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          {/* Judul "About Me" dengan efek gradien dan animasi */}
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-6 bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600 text-transparent bg-clip-text"
-          >
+          <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-30 animate-pulse">
             About Me
-          </motion.h2>
-
-          {/* Deskripsi singkat tentang Johan */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-300 text-center leading-relaxed"
-          >
-            Halo! Saya <span className="font-semibold text-blue-400">Johan Maulana</span>, seorang kreator digital yang suka menciptakan aplikasi modern, interaktif, dan aman. Saya percaya teknologi adalah jembatan antara ide dan solusi nyata.
-          </motion.p>
-
-          {/* Card Sections, Grid untuk kartu keahlian */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[ // Reuseable array for cleaner code, Mapping setiap item ke dalam motion + tilt card
-              {
-                icon: <FaCode className="text-4xl mb-4 text-cyan-400" />,
-                title: "Web Development",
-                desc: "Membangun website cepat, responsive, dan interaktif dengan React, Next.js, dan Tailwind.",
-              },
-              {
-                icon: <FaMobileAlt className="text-4xl mb-4 text-green-400" />,
-                title: "Mobile Apps",
-                desc: "Merancang aplikasi mobile intuitif dan performa tinggi menggunakan Flutter & React Native.",
-              },
-              {
-                icon: <FaShieldAlt className="text-4xl mb-4 text-red-400" />,
-                title: "Cybersecurity",
-                desc: "Mengintegrasikan keamanan dari awal pengembangan serta aktif mendalami dunia ethical hacking.",
-              },
-            ].map((item, index) => (
-              //Kartu animasi untuk setiap skill
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
-              >
-                {/* Efek tilt untuk kartu */}
-                <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={600}>
-                  {/* Kontainer baru */}
-                  <div className="p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] transition-all duration-300 hover:scale-[1.03]">
-                    {/* Isi kartu: ikon, judul, deskripsi */}
-                    <div className="flex flex-col items-center text-center text-white">
-                      {item.icon}
-                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-sm text-gray-400">{item.desc}</p>
-                    </div>
-                  </div>
-                </Tilt>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Animated Quote dan TypeAnimation animasi*/}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="mt-12 text-center text-base text-gray-400"
-          >
-            <TypeAnimation
-              sequence={[
-                `"Kreativitas adalah kekuatan saya,"`, 1200,
-                `"Teknologi adalah alat saya,"`, 1200,
-                `"dan Keamanan adalah fondasinya." – Johan Maulana`, 1500
-              ]}
-              wrapper="span"
-              speed={40}
-              repeat={Infinity}
-              className="inline-block"
-            />
-          </motion.div>
+          </h2>
+          {/* <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+            Saya adalah pengembang full stack yang bersemangat membangun solusi digital inovatif dengan fokus pada performa, keamanan, dan pengalaman pengguna.
+          </p> */}
         </motion.div>
+
+        {/* Content */}
+        <div className="flex flex-col md:flex-row items-center gap-12 w-full">
+          {/* Bio Card */}
+          <motion.div
+            className="flex-1 relative p-6 text-white backdrop-blur-md bg-gradient-to-b from-gray-900/80 to-blue-950/90 rounded-2xl shadow-[0_0_30px_#0ff3] border border-blue-400/20 overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0 15px 40px rgba(0, 255, 255, 0.4)",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              perspective: 1000,
+              transformStyle: "preserve-3d",
+              transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+            }}
+          >
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-40 animate-pulse"
+              style={{ transform: "translateZ(-30px)" }}
+            />
+            <div className="absolute inset-0 z-0">
+              <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1.2}
+                particleDensity={60}
+                className="w-full h-full"
+              />
+            </div>
+            <div className="relative z-10 text-center md:text-left space-y-4">
+              <motion.h3
+                className="text-xl font-bold text-white drop-shadow"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                Johan Maulana
+              </motion.h3>
+              <motion.p
+                className="text-sm text-blue-200 font-medium"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                Saya adalah seorang pengembang full stack yang terus belajar dan berkembang. Saya antusias membangun aplikasi web dan mobile yang aman, efisien, dan berfokus pada pengalaman pengguna. Di samping itu, saya juga aktif mengeksplorasi dunia keamanan siber untuk memahami cara melindungi sistem dari berbagai ancaman.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <a
+                  href="JohanCV.pdf"
+                  download
+                  className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 text-white font-semibold shadow-xl hover:scale-105 transition gap-2 relative overflow-hidden"
+                >
+                  <span className="absolute inset-0 animate-glow bg-gradient-to-r from-cyan-400/20 via-blue-500/10 to-transparent blur-md opacity-75" />
+                  <FaDownload className="z-10 relative" />
+                  <span className="z-10 relative">Download CV</span>
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {skills.map((skill, index) => {
+              const Icon = skill.icon;
+              return (
+                <motion.div
+                  key={skill.name}
+                  className="relative p-4 text-white backdrop-blur-sm rounded-xl shadow-xl border border-cyan-400/20 bg-gradient-to-br from-blue-900/60 to-purple-800/50 overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 30px rgba(0, 255, 255, 0.3)",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-50" />
+                  <div className="relative z-10 flex flex-col items-center text-center space-y-2">
+                    <Icon className="text-3xl text-cyan-300 animate-pulse" />
+                    <h4 className="text-lg font-semibold text-white">
+                      {skill.name}
+                    </h4>
+                    <p className="text-xs text-gray-300">
+                      {skill.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

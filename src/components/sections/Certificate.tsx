@@ -39,25 +39,25 @@ export default function Certificate() {
 
   const certificates: Certificate[] = [
     {
-      title: "Certified Ethical Hacker (CEH)",
-      issuer: "EC-Council",
-      date: "2024-06-15",
-      imageUrl: "/images/cert1.jpg",
-      description: "Certification in ethical hacking and penetration testing.",
+      title: "Internship Completion Certificate",
+      issuer: "PT. Gama Multi Usaha Mandiri",
+      date: "2024-12-15",
+      imageUrl: "/J1.png",
+      description: "Successfully completed an internship at PT. Gama Multi Usaha Mandiri, gaining hands-on experience in internship.",
     },
     {
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2023-11-20",
-      imageUrl: "/images/cert2.jpg",
-      description: "Certification in designing and deploying scalable systems on AWS.",
+      title: "Certificate of Participation",
+      issuer: "PT. Gama Multi Usaha Mandiri",
+      date: "2024-12-15",
+      imageUrl: "/J2.png",
+      description: "Awarded for active participation, demonstrating enthusiasm and commitment to continuous learning",
     },
     {
-      title: "Google Cloud Professional",
-      issuer: "Google Cloud",
-      date: "2023-08-10",
-      imageUrl: "/images/cert3.jpg",
-      description: "Certification in cloud architecture and solutions.",
+      title: "Certificate of Appreciation for Contribution in Vulnerability Assessment",
+      issuer: "Diskominfo Sulawesi Selatan",
+      date: "2024-12-15",
+      imageUrl: "/J3.png",
+      description: "Awarded a certificate of appreciation for contributing to a vulnerability assessment project, recognizing efforts in identifying and analyzing potential security weaknesses.",
     },
   ];
 
@@ -66,16 +66,16 @@ export default function Certificate() {
       id="certificates"
       className="w-full flex flex-col items-center justify-center text-center px-4 pt-0 pb-24 relative"
     >
-      {/* Sparkles Background */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Holographic Particle Background */}
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1.2}
-          particleDensity={80}
+          particleDensity={200}
           className="w-full h-full"
         />
-      </div>
+      </div>  */}
 
       {/* Grid Certificates */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
