@@ -23,22 +23,22 @@ export default function ProjectsSection() {
   // Data dummy untuk preview proyek
   const previewProjects: Project[] = [
     {
-      title: "AI-Powered Attendance System",
-      imageUrl: "/images/project1.jpg",
+      title: "M-Banking Sampah",
+      imageUrl: "project/project1.jpeg",
       tech: ["Next.js", "TensorFlow.js", "Framer Motion"],
-      description: "Absensi otomatis dengan pengenalan wajah berbasis AI dan IoT.",
+      description: "Aplikasi yang mengonversi sampah anorganik menjadi saldo digital untuk mendorong gaya hidup ramah lingkungan.",
     },
     {
       title: "Cybersecurity Toolkit",
-      imageUrl: "/images/project2.jpg",
+      imageUrl: "/project2.jpg",
       tech: ["Linux", "Nmap", "Wireshark"],
       description: "Toolkit untuk penetration testing, network scanning, dan vulnerability assessment.",
     },
     {
       title: "Mobile Water Monitor",
-      imageUrl: "/images/project3.jpg",
+      imageUrl: "/project3.jpg",
       tech: ["Flutter", "MQTT", "Firebase"],
-      description: "Aplikasi mobile monitoring kualitas air kolam lele secara real-time.",
+      description: "Sistem monitoring kolam berbasis Flutter dan MQTT yang menampilkan data sensor seperti suhu dan pH air secara real-time.",
     },
   ];
   
