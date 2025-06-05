@@ -2,12 +2,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaDownload, FaCode, FaShieldAlt, FaMobileAlt } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TbBinaryTree } from "react-icons/tb";
 import { SparklesCore } from "../ui/sparkles";
 
 export default function About() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -19,6 +20,10 @@ export default function About() {
   const handleMouseLeave = () => {
     setTilt({ x: 0, y: 0 });
   };
+
+  useEffect(() => {
+    setHasAnimated(true);
+  }, []);
 
   const skills = [
     {
@@ -60,9 +65,8 @@ export default function About() {
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3">
             About Me
@@ -75,7 +79,7 @@ export default function About() {
           <motion.div
             className="flex-1 relative p-6 text-white backdrop-blur-md bg-gradient-to-b from-gray-900/80 to-blue-950/90 rounded-2xl shadow-[0_0_30px_#0ff3] border border-blue-400/20 overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             whileHover={{
               scale: 1.03,
@@ -106,7 +110,7 @@ export default function About() {
               <motion.h3
                 className="text-xl font-bold text-white drop-shadow"
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 Johan Maulana
@@ -114,14 +118,14 @@ export default function About() {
               <motion.p
                 className="text-sm text-blue-200 font-medium"
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 Dengan minat kuat dalam cybersecurity, khususnya Red Team dan Digital Forensic, saya juga tertarik pada frontend development. Saya bersemangat mempelajari cara kerja sistem, menemukan celah keamanan, dan membangun antarmuka yang aman dan efisien.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <a
@@ -146,7 +150,7 @@ export default function About() {
                   key={skill.name}
                   className="relative p-4 text-white backdrop-blur-sm rounded-xl shadow-xl border border-cyan-400/20 bg-gradient-to-br from-blue-900/60 to-purple-800/50 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
                   whileHover={{
                     scale: 1.05,
