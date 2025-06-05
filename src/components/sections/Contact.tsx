@@ -23,7 +23,7 @@ export default function Contact() {
 
       {/* Judul section*/}
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-3 animate-pulse"
+        className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-3"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -75,8 +75,8 @@ export default function Contact() {
         <ContactCard
           icon={<Github className="text-gray-500 w-6 h-6" />}
           title="GitHub"
-          value="@Coming Soon"
-          href="https://github.com/"
+          value="Johan Maulana"
+          href="https://github.com/JohanMaa"
           borderColor="border-gray-500"
         />
       </motion.div>

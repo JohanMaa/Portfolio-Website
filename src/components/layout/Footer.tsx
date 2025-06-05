@@ -12,6 +12,7 @@ import {
   HiOutlineLocationMarker,
 } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { FaX } from 'react-icons/fa6';
 
 // Komponen utama footer
 export default function Footer() {
@@ -38,7 +39,7 @@ export default function Footer() {
           </motion.h1>
           <p className="text-sm text-gray-400 mb-4">My Digital Playground</p>
           <div className="flex space-x-4 text-2xl">
-            <GlowIcon href="https://twitter.com/" icon={<FaTwitter />} />
+            <GlowIcon href="https://x.com/" icon={<FaX />} />
             <GlowIcon href="https://www.linkedin.com/in/johan-maulana-26b051305/" icon={<FaLinkedin />} />
             <GlowIcon href="https://github.com/JohanMaa" icon={<FaGithub />} />
             <GlowIcon href="https://instagram.com/jhnmlna._" icon={<FaInstagram />} />

@@ -24,7 +24,7 @@ interface ProfileProps {
 const profile: ProfileProps = {
   imageSrc: "/team/jm1.png",
   name: "Johan Maulana",
-  role: "Full Stack Developer",
+  role: "FrontEnd Developer",
   techStack: [
     { name: "React", icon: SiReact, color: "bg-blue-700/60 hover:bg-blue-600/80" },
     { name: "Next.js", icon: SiNextdotjs, color: "bg-purple-700/60 hover:bg-purple-600/80" },
@@ -50,11 +50,11 @@ export default function Hero() {
 
   const [text] = useTypewriter({
     words: [
-      "Full Stack Developer",
+      "FrontEnd Developer",
       "Mobile App Builder",
       "Penetration Tester",
-      "Tech Problem Solver",
       "Digital Forensic",
+      "Tech Enthusiast",
     ],
     loop: true,
     typeSpeed: 50,
@@ -71,7 +71,7 @@ export default function Hero() {
         {/* Left: Text */}
         <div className="text-center md:text-left flex-1">
           <motion.h1
-            className="text-5xl md:text6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text animate-pulse"
+            className="text-5xl md:text5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -134,15 +134,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: Profile Card */}
+        {/* Right: Profile Card with Removed Name */}
         <motion.div
-          className="flex-1 relative p-6 text-white backdrop-blur-lg max-w-sm mx-auto rounded-3xl shadow-2xl border border-blue-500/40 overflow-hidden"
+          className="flex-1 relative p-6 text-white max-w-sm mx-auto rounded-3xl shadow-2xl border border-cyan-400/20 overflow-hidden"
           initial={{ opacity: 0, y: 40, rotateX: 15 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
           whileHover={{
             scale: 1.07,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.7)",
+            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
             transition: { duration: 0.4 },
           }}
           onMouseMove={handleMouseMove}
@@ -153,8 +153,17 @@ export default function Hero() {
             transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
           }}
         >
-          {/* Glowing aura ring around profile picture */}
-          <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-400 via-purple-600 to-pink-500 opacity-60 blur-3xl animate-pulse" />
+          {/* Background Layers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-500/10 pointer-events-none" />
+          <div className="absolute inset-0 z-0">
+            {/* <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={100}
+              className="w-full h-full"
+            /> */}
+          </div>
 
           {/* Profile Card Content */}
           <div className="relative z-20 text-center space-y-5">
@@ -175,7 +184,7 @@ export default function Hero() {
               />
             </motion.div>
 
-            <h2 className="text-2xl font-bold text-white drop-shadow-lg">{profile.name}</h2>
+            {/* Name Removed */}
             <p className="text-cyan-400 font-medium tracking-wide">{profile.role}</p>
 
             {/* Tech Stack */}

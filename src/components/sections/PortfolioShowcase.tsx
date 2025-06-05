@@ -38,7 +38,7 @@ export default function PortfolioShowcase() {
 
       {/* Header */}
       <div className="relative z-10 max-w-4xl mx-auto text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-4 animate-pulse">
+        <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent text-center bg-clip-text mb-4">
           Portfolio Showcase
         </h2>
         <p className="text-base md:text-lg text-white/80">

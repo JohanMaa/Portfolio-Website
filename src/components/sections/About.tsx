@@ -64,12 +64,9 @@ export default function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-30 animate-pulse">
+          <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3">
             About Me
           </h2>
-          {/* <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Saya adalah pengembang full stack yang bersemangat membangun solusi digital inovatif dengan fokus pada performa, keamanan, dan pengalaman pengguna.
-          </p> */}
         </motion.div>
 
         {/* Content */}
@@ -120,7 +117,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                Saya adalah seorang pengembang full stack yang terus belajar dan berkembang. Saya antusias membangun aplikasi web dan mobile yang aman, efisien, dan berfokus pada pengalaman pengguna. Di samping itu, saya juga aktif mengeksplorasi dunia keamanan siber untuk memahami cara melindungi sistem dari berbagai ancaman.
+                Dengan minat kuat dalam cybersecurity, khususnya Red Team dan Digital Forensic, saya juga tertarik pada frontend development. Saya bersemangat mempelajari cara kerja sistem, menemukan celah keamanan, dan membangun antarmuka yang aman dan efisien.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}

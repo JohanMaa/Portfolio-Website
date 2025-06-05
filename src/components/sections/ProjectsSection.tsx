@@ -1,66 +1,87 @@
 "use client";
 import { useState } from "react";
-import ProjectCard from "@/app/projects/ProjectCard";
-import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { SparklesCore } from "../ui/sparkles";
+import { Project, projects } from "@/data/projects";
 
-// Tipe data untuk representasi struktur proyek
-interface Project {
+// Komponen kartu proyek
+const ProjectCard = ({
+  title,
+  imageUrl,
+  description,
+  slug,
+  liveLink,
+}: {
   title: string;
   imageUrl: string;
-  tech: string[];
   description: string;
-}
+  slug: string;
+  liveLink?: string;
+}) => {
+  const normalizedImageUrl = imageUrl.startsWith("/") ? imageUrl : `/${imageUrl}`;
+
+  return (
+    <div className="group relative overflow-hidden rounded-xl shadow-xl transition hover:scale-[1.03] hover:shadow-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20">
+      {/* Gambar Project */}
+      <div
+        className="h-56 bg-cover bg-center"
+        style={{ backgroundImage: `url(${normalizedImageUrl})` }}
+        onError={(e) => {
+          console.warn(`Failed to load image: ${normalizedImageUrl}`);
+          e.currentTarget.style.backgroundImage = `url(/fallback.png)`;
+        }}
+      />
+
+      {/* Konten Card */}
+      <div className="p-4 space-y-3 text-white">
+        <h3 className="text-lg font-bold text-cyan-400">{title}</h3>
+        {/* Deskripsi Singkat */}
+        <p className="text-sm text-white/80 line-clamp-2">{description}.....</p>
+        {/* Tombol */}
+        <div className="flex items-center gap-3">
+          {liveLink && (
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold text-sm hover:from-cyan-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+              aria-label="Live Demo"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Live Demo
+            </a>
+          )}
+          <Link
+            href={`/projects/${slug}`}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-transparent text-cyan-400 rounded-lg font-semibold text-sm hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-purple-600/20 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95 ml-auto"
+            aria-label="Project Details"
+          >
+            Detail
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // Komponen utama untuk section Projects
 export default function ProjectsSection() {
-  // State untuk menyimpan proyek yang sedang dipilih
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  // State untuk mengatur jumlah proyek yang ditampilkan
+  const [showAll, setShowAll] = useState(false);
 
-  // Data dummy untuk preview proyek
-  const previewProjects: Project[] = [
-    {
-      title: "M-Banking Sampah",
-      imageUrl: "project/project1.jpeg",
-      tech: ["Next.js", "TensorFlow.js", "Framer Motion"],
-      description: "Aplikasi yang mengonversi sampah anorganik menjadi saldo digital untuk mendorong gaya hidup ramah lingkungan.",
-    },
-    {
-      title: "Cybersecurity Toolkit",
-      imageUrl: "/project2.jpg",
-      tech: ["Linux", "Nmap", "Wireshark"],
-      description: "Toolkit untuk penetration testing, network scanning, dan vulnerability assessment.",
-    },
-    {
-      title: "Mobile Water Monitor",
-      imageUrl: "/project3.jpg",
-      tech: ["Flutter", "MQTT", "Firebase"],
-      description: "Sistem monitoring kolam berbasis Flutter dan MQTT yang menampilkan data sensor seperti suhu dan pH air secara real-time.",
-    },
-  ];
-  
+  // Proyek yang ditampilkan berdasarkan state
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+
   return (
     <section
       id="projects"
       className="w-full flex flex-col items-center text-center px-4 pt-0 pb-24 relative"
     >
-      {/* Holographic Particle Background */}
-      {/* <div className="absolute inset-0 z-0 pointer-events-none">
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1.2}
-          particleDensity={200}
-          className="w-full h-full"
-        />
-      </div>  */}
-
       {/* Grid Project */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
-        {previewProjects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
@@ -71,78 +92,29 @@ export default function ProjectsSection() {
             <ProjectCard
               title={project.title}
               imageUrl={project.imageUrl}
-              tech={project.tech}
               description={project.description}
-              onClick={() => setSelectedProject(project)}
+              slug={project.slug}
+              liveLink={project.liveLink}
             />
           </motion.div>
         ))}
       </div>
 
-      {/* Tombol ke halaman semua proyek */}
+      {/* Tombol See More / See Less */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="mt-12"
       >
-        <Link
-          href="/projects"
+        <button
+          onClick={() => setShowAll(!showAll)}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-xl"
         >
-          Lihat Semua Proyek
+          {showAll ? "See Less" : "See More"}
           <ArrowRight className="w-5 h-5" />
-        </Link>
+        </button>
       </motion.div>
-
-      {/* Modal Detail Project */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="relative bg-gradient-to-br from-[#111827]/80 to-[#1f2937]/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl max-w-xl w-full p-6 text-left text-white"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Tombol Close */}
-              <button
-                className="absolute top-4 right-4 text-white/70 hover:text-white"
-                onClick={() => setSelectedProject(null)}
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Gambar */}
-              <div className="w-full h-64 bg-cover bg-center rounded-lg mb-4 border border-white/10 shadow-inner"
-                style={{ backgroundImage: `url(${selectedProject.imageUrl})` }}
-              />
-
-              {/* Judul dan Deskripsi */}
-              <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
-              <p className="text-white/80 mb-4">{selectedProject.description}</p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
-                {selectedProject.tech.map((item, index) => (
-                  <span
-                    key={index}
-                    className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full font-medium shadow-md"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
