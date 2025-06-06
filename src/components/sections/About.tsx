@@ -65,7 +65,7 @@ export default function About() {
               <p className="text-xs text-purple-400 italic">
                 “Exploring systems and building secure interfaces.”
               </p>
-              <p className="text-sm text-gray-400 pt-2">NIM: 225510014</p>
+              <hr className="my-3 border-t border-cyan-400/20" />
               <p className="text-sm text-gray-500">Yogyakarta, Indonesia</p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function About() {
                 Download CV
               </a>
               <a
-                href="#projects"
+                href="#portfolio"
                 className="inline-flex items-center px-5 py-2.5 rounded-full border border-cyan-400 text-cyan-300 font-medium hover:bg-cyan-500/10 hover:scale-105 transition-transform duration-300 gap-2"
               >
                 <BiCodeAlt />

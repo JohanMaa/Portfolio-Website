@@ -72,7 +72,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4 animate-pulse">
           <div className="w-12 h-12 mx-auto border-4 border-cyan-300 border-t-cyan-500 rounded-full animate-spin" />
           <h2 className="text-base xs:text-lg font-semibold text-cyan-400">Project not found</h2>

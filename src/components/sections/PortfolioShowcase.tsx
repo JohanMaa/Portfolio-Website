@@ -7,7 +7,7 @@ import { Code, BadgeCheck, Atom } from "lucide-react"; // Ikon untuk tab
 import ProjectsSection from "./ProjectsSection";
 import Certificate from "./Certificate";
 import TechStack from "./TechStack";
-import { SparklesCore } from "../ui/sparkles";
+// import { SparklesCore } from "../ui/sparkles";
 
 const tabs = [
   { name: "Projects", icon: <Code className="w-4 h-4 mr-2" /> },
@@ -16,7 +16,7 @@ const tabs = [
 ];
 
 export default function PortfolioShowcase() {
-  const [activeSection, setActiveSection] = useState("Tech Stack");
+  const [activeSection, setActiveSection] = useState("Projects");
 
   useEffect(() => {
     // Menangani offset scroll saat navigasi ke section

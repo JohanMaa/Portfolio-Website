@@ -13,6 +13,12 @@
   --foreground: #f1f5f9; /* Warna teks utama (abu-abu terang) */
 }
 
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(136, 16, 184) transparent;
+}
+
 /* Mengatur perilaku scroll halus untuk transisi antar section saat navigasi */
 html {
   scroll-behavior: smooth;
