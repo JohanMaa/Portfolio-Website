@@ -1,127 +1,151 @@
+/* Mengimpor base styles dari Tailwind CSS, termasuk reset default browser */
 @tailwind base;
+
+/* Mengimpor definisi komponen Tailwind untuk kelas-kelas kustom */
 @tailwind components;
+
+/* Mengimpor utilitas Tailwind untuk kelas-kelas fungsional seperti padding, margin, dll. */
 @tailwind utilities;
 
+/* Mendefinisikan variabel CSS global untuk warna latar belakang dan teks */
 :root {
-  --background: #000000;
-  --foreground: #f1f5f9;
+  --background: #000000; /* Warna latar belakang utama (hitam) */
+  --foreground: #f1f5f9; /* Warna teks utama (abu-abu terang) */
 }
 
+/* Mengatur perilaku scroll halus untuk transisi antar section saat navigasi */
 html {
   scroll-behavior: smooth;
 }
 
+/* Styling dasar untuk body, menggunakan variabel CSS untuk warna dan font */
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  position: relative;
+  background-color: var(--background); /* Latar belakang hitam */
+  color: var(--foreground); /* Warna teks abu-abu terang */
+  font-family: 'Inter', sans-serif; /* Font modern dan bersih */
+  overflow-x: hidden; /* Mencegah scroll horizontal */
+  position: relative; /* Untuk positioning elemen absolut di dalamnya */
 }
 
 /* === 🔮 Neon Glow Effect for Text === */
+/* Efek neon untuk teks dengan bayangan cahaya cyan */
 .glow-text {
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+  text-shadow: 
+    0 0 5px #0ff, 
+    0 0 10px #0ff, 
+    0 0 15px #0ff; /* Membuat teks tampak bercahaya */
 }
 
 /* === ✨ Hover Underline Gradient Animation === */
+/* Kelas untuk elemen dengan garis bawah animasi saat hover */
 .hover-underline {
-  position: relative;
+  position: relative; /* Untuk positioning pseudo-element ::after */
 }
 
+/* Pseudo-element untuk garis bawah dengan efek transisi */
 .hover-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #06b6d4, #8b5cf6); /* cyan to violet */
-  transition: width 0.3s ease;
+  content: ""; /* Konten kosong untuk garis */
+  position: absolute; /* Posisi relatif terhadap elemen induk */
+  left: 0; /* Mulai dari kiri */
+  bottom: -2px; /* Sedikit di bawah elemen */
+  width: 0; /* Awalnya tidak terlihat */
+  height: 2px; /* Ketebalan garis */
+  background: linear-gradient(to right, #06b6d4, #8b5cf6); /* Gradien cyan ke ungu */
+  transition: width 0.3s ease; /* Animasi lebar garis saat hover */
 }
 
+/* Saat hover, garis bawah melebar ke 100% */
 .hover-underline:hover::after {
   width: 100%;
 }
 
 /* === 🌈 Text Gradient Utility === */
+/* Kelas untuk teks dengan efek gradien warna */
 .text-gradient {
-  background: linear-gradient(to right, #0ff, #f0f, #0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, #0ff, #f0f, #0ff); /* Gradien cyan-ungu-cyan */
+  -webkit-background-clip: text; /* Klip latar belakang ke teks (khususnya untuk WebKit) */
+  -webkit-text-fill-color: transparent; /* Membuat teks transparan agar gradien terlihat */
 }
 
 /* === 🌌 Background Blobs (Cyber aura) === */
+/* Membuat elemen dekoratif berbentuk lingkaran buram untuk efek latar belakang */
 .background-blobs::before,
 .background-blobs::after {
-  content: "";
-  position: fixed;
-  border-radius: 9999px;
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(140px);
-  mix-blend-mode: screen;
-  transition: all 0.3s ease;
-  will-change: transform;
+  content: ""; /* Konten kosong untuk pseudo-element */
+  position: fixed; /* Tetap di posisi layar */
+  border-radius: 9999px; /* Bentuk lingkaran */
+  opacity: 0.15; /* Transparansi rendah untuk efek halus */
+  z-index: -1; /* Di belakang konten utama */
+  pointer-events: none; /* Tidak bisa diklik */
+  filter: blur(140px); /* Efek buram untuk kesan lembut */
+  mix-blend-mode: screen; /* Blend mode untuk efek cahaya */
+  transition: all 0.3s ease; /* Transisi halus untuk perubahan transformasi */
+  will-change: transform; /* Optimasi performa untuk animasi transform */
 }
 
+/* Blob pertama (kiri atas) dengan gradien cyan */
 .background-blobs::before {
   width: 550px;
   height: 550px;
   top: -180px;
   left: -180px;
-  background: radial-gradient(circle, #22d3ee, #0ea5e9); /* cyan */
+  background: radial-gradient(circle, #22d3ee, #0ea5e9);
 }
 
+/* Blob kedua (kanan bawah) dengan gradien ungu */
 .background-blobs::after {
   width: 650px;
   height: 650px;
   bottom: -220px;
   right: -220px;
-  background: radial-gradient(circle, #a78bfa, #8b5cf6); /* purple */
+  background: radial-gradient(circle, #a78bfa, #8b5cf6);
 }
 
 /* === ⬇️ Slide-down animation for mobile menu === */
+/* Animasi untuk menu mobile yang muncul dari atas */
 @keyframes slide-down {
   0% {
-    transform: translateY(-10%);
-    opacity: 0;
+    transform: translateY(-10%); /* Mulai sedikit di atas */
+    opacity: 0; /* Tidak terlihat */
   }
   100% {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(0); /* Posisi normal */
+    opacity: 1; /* Sepenuhnya terlihat */
   }
 }
 
+/* Kelas untuk menerapkan animasi slide-down */
 .animate-slide-down {
-  animation: slide-down 0.3s ease-out;
+  animation: slide-down 0.3s ease-out; /* Durasi dan easing untuk animasi */
 }
 
 /* === ⏩ Marquee animation (optional use) === */
+/* Animasi marquee untuk teks bergerak dari kanan ke kiri */
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(100%); /* Mulai dari kanan */
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Berpindah ke kiri */
   }
 }
 
+/* Kelas untuk menerapkan animasi marquee */
 .animate-marquee {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
+  display: inline-block; /* Memastikan elemen tetap inline */
+  animation: marquee 20s linear infinite; /* Animasi berjalan terus-menerus */
 }
 
 /* === ♿️ Reduced motion support === */
+/* Menonaktifkan animasi untuk pengguna dengan preferensi reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-down,
   .animate-marquee {
-    animation: none !important;
+    animation: none !important; /* Menghapus animasi */
   }
 }
 
-
+/* === 🌟 Efek neon dengan bayangan cahaya bertingkat */
 .neon-glow {
   text-shadow:
     0 0 5px #7fdbff,
@@ -130,35 +154,39 @@ body {
     0 0 30px #00e9ff,
     0 0 40px #00b6ff,
     0 0 50px #00aaff,
-    0 0 75px #00aaff;
+    0 0 75px #00aaff; /* Efek neon dengan lapisan cahaya cyan */
 }
 
+/* === 🟣 Efek glow ungu untuk elemen kotak */
 .glow-purple {
-  box-shadow: 0 0 8px 2px #9f7fff;
+  box-shadow: 0 0 8px 2px #9f7fff; /* Bayangan ungu untuk elemen */
 }
 
+/* === 🟢 Efek glow cyan untuk elemen kotak */
 .glow-cyan {
-  box-shadow: 0 0 8px 2px #00d4ff;
+  box-shadow: 0 0 8px 2px #00d4ff; /* Bayangan cyan untuk elemen */
 }
 
+/* === 🔵 Efek neon untuk tombol */
 .neon-button {
   box-shadow:
     0 0 8px #3b82f6,
-    0 0 15px #3b82f6;
+    0 0 15px #3b82f6; /* Bayangan biru untuk tombol dengan efek neon */
 }
 
-/* app/globals.css */
+/* === 📜 Animasi slide-in dari bawah ke atas */
 .animate-slide-in-up {
-  animation: slideInUp 0.6s ease-out;
+  animation: slideInUp 0.6s ease-out; /* Menerapkan animasi slide-in */
 }
 
+/* Keyframes untuk animasi slide-in dari bawah */
 @keyframes slideInUp {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0; /* Mulai tidak terlihat */
+    transform: translateY(20px); /* Mulai dari bawah */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Sepenuhnya terlihat */
+    transform: translateY(0); /* Posisi normal */
   }
 }
