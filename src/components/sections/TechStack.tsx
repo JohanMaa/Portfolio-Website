@@ -11,12 +11,13 @@ const techStacks = [
   { name: "JavaScript", icon: "/icons/javascript.png" },
   { name: "Tailwind CSS", icon: "/icons/tailwind.png" },
   { name: "ReactJS", icon: "/icons/react.png" },
-  { name: "Vite", icon: "/icons/vite.png" },
-  { name: "Node JS", icon: "/icons/nodejs.png" },
   { name: "Next JS", icon: "/icons/nextjs.svg" },
   { name: "Firebase", icon: "/icons/firebase.png" },
   { name: "Vercel", icon: "/icons/vercel.svg" },
   // Penetration Testing Tools
+  { name: "Wazuh", icon: "/icons/wazuh.jpg" },
+  { name: "Nessus", icon: "/icons/nessus.png" },
+  { name: "Arachni", icon: "/icons/arachni.jpg" },
   { name: "Metasploit", icon: "/icons/metasploit.png" },
   { name: "Nmap", icon: "/icons/nmap.png" },
   { name: "Burp Suite", icon: "/icons/burpsuite.svg" },
@@ -26,7 +27,6 @@ const techStacks = [
   { name: "Kali Linux", icon: "/icons/kalilinux.png" },
   { name: "BlackArch", icon: "/icons/blackarch.png" },
   { name: "Parrot OS", icon: "/icons/Parrot.png" },
-  { name: "DMDE", icon: "/icons/dmde.png" },
   { name: "Wireshark", icon: "/icons/Wireshark.png" },
   // Digital Forensics Tools
   { name: "Autopsy", icon: "/icons/autopsy.svg" },
