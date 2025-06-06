@@ -53,6 +53,7 @@ export default function Hero() {
       "FrontEnd Developer",
       "Mobile App Builder",
       "Penetration Tester",
+      "Vulnerability Assessment",
       "Digital Forensic",
       "Tech Enthusiast",
     ],
