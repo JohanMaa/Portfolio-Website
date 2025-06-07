@@ -72,6 +72,7 @@ export const projects: Project[] = [
     tech: ["Kismet", "Wireshark", "Aircrack-ng", "Reaver"],
     description: "Melakukan site survey keamanan jaringan nirkabel di dua lokasi berbeda (kampus dan rumah/kost) menggunakan Kismet, Wireshark, dan Aircrack-ng untuk menganalisis kanal, tipe enkripsi, perangkat klien, dan potensi celah keamanan.",
     slug: createSlug("Wireless Security Site Survey with Kismet"),
+    liveLink: "https://drive.google.com/file/d/1ONALXm5_POuqToXn2uT9ILXaaFvt2B0w/view?usp=sharing",
     features: [
       "Deteksi Wireless AP dan client (SSID, BSSID, encryption)",
       "Identifikasi channel paling padat dan sepi",
@@ -80,13 +81,14 @@ export const projects: Project[] = [
       "Deteksi AP yang mengaktifkan WPS via Reaver",
       "Tangkap 4-Way Handshake WPA2 untuk cracking via Aircrack-ng"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Wireless-Security-Kismet"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Wireless-Security-Kismet"
   },
   {
     title: "Mobile Device Management with Miradore",
     imageUrl: "/project/project7.png",
     tech: ["Miradore", "MDM", "Mobile Security", "Device Policy", "Goto Resolve"],
     description: "Eksperimen penggunaan platform Miradore sebagai solusi Mobile Device Management (MDM) untuk mengatur, memonitor, dan mengamankan perangkat Android/iOS secara remote. Project dilakukan menggunakan akun trial Miradore Cloud dan perangkat uji.",
+    liveLink: "https://drive.google.com/file/d/1_HPnMATmRoq9UvFeHawAT304-P0RfO3U/view?usp=sharing",
     slug: createSlug("Mobile Device Management with Miradore"),
     features: [
       "Device Enrollment via QR Code atau Email",
@@ -97,13 +99,14 @@ export const projects: Project[] = [
       "Security Policies Enforcement (PIN, Encryption, etc)",
       "Inventory perangkat otomatis (Model, OS, IMEI)"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Mobile-Device-Management-Miradore"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Mobile-Device-Management-Miradore"
   },
   {
     title: "Public Key Infrastructure with OpenSSL (Self-Signed Certificate)",
     imageUrl: "/project/project8.jpeg",
     tech: ["PKI", "OpenSSL", "CA", "HTTPS", "Apache2"],
     description: "Simulasi implementasi Public Key Infrastructure (PKI) dengan membentuk Certificate Authority (CA) sendiri menggunakan OpenSSL, kemudian menerbitkan dan mengimplementasikan sertifikat HTTPS untuk dua domain simulasi pada Apache2 Web Server lokal.",
+    liveLink: "https://drive.google.com/file/d/1IM2GHUIIkBYxDxa7CbdI9LwLfkFsaM6P/view?usp=sharing",
     slug: createSlug("Public Key Infrastructure with OpenSSL"),
     features: [
       "Generate CA Key & Certificate (ca.key dan ca.crt)",
@@ -113,13 +116,14 @@ export const projects: Project[] = [
       "Penggunaan /etc/hosts untuk simulasi DNS internal",
       "Validasi HTTPS pada browser dengan sertifikat self-signed"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Public-Key-Infrastructure"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Public-Key-Infrastructure"
   },
   {
     title: "Vulnerability Assessment using Nessus",
     imageUrl: "/project/project9.jpeg",
     tech: ["Nessus", "Network Scanning", "Vulnerability Assessment", "CVSS"],
     description: "Melakukan pemindaian keamanan jaringan internal dan web server simulasi menggunakan Nessus Professional (Trial). Project ini bertujuan untuk mengidentifikasi celah keamanan dan potensi risiko dari host atau service yang terdeteksi.",
+    liveLink: "https://drive.google.com/file/d/1Zs2gqAHaC-8HMfaFs5PkWBNTYV6ztkg9/view?usp=sharing",
     slug: createSlug("Vulnerability Assessment using Nessus"),
     features: [
       "Install & aktivasi Nessus Professional (Trial)",
@@ -129,13 +133,14 @@ export const projects: Project[] = [
       "Pemberian solusi dan remediation sesuai hasil scan Nessus",
       "Export hasil scan ke dalam format PDF dan HTML"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Nessus-Scan"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Nessus-Scan"
   },
   {
     title: "Digital Forensic: File Recovery from RAW Disk Image",
     imageUrl: "/project/project10.png",
     tech: ["Digital Forensic", "Autopsy", "TSK", "Foremost", "FTK Imager", "DMDE"],
     description: "Melakukan proses analisa dan recovery terhadap file yang telah terhapus dari image RAW (File RAW-ImageDrive.dd) menggunakan berbagai tools forensik digital.",
+    liveLink: "https://drive.google.com/file/d/1mQHjkw1o6bjPkjVNuwpggo_IawHpucg3/view?usp=sharing",
     slug: createSlug("Digital Forensic RAW Image Analysis"),
     features: [
       "Analisis file image .dd menggunakan 5 tools forensik: TSK Recovery, Foremost, DMDE, Autopsy, FTK Imager",
@@ -144,13 +149,14 @@ export const projects: Project[] = [
       "Presentasi hasil dalam bentuk tabel dan screenshot",
       "Pemetaan jenis file berdasarkan extension dan jumlah"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Digital-Forensic-RAW-Recovery"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Digital-Forensic-RAW-Recovery"
   },  
   {
     title: "SIEM: Incident Investigation dengan Wazuh",
     imageUrl: "/project/project11.png",
     tech: ["SIEM", "Wazuh", "Incident Response", "Log Monitoring", "VM", "Security Analytics"],
     description: "Melakukan instalasi dan konfigurasi sistem SIEM Wazuh (versi 4.5.3) menggunakan OVA, mempelajari fitur-fitur utama, serta menghubungkan agent untuk memonitor aktivitas dan insiden dari sistem endpoint.",
+    liveLink: "https://drive.google.com/file/d/11jf4R0npfQZum-pDXBUUt2y-zlrm2LHX/view?usp=sharing",
     slug: createSlug("Wazuh SIEM Incident Monitoring"),
     features: [
       "Install dan setup Wazuh SIEM di VirtualBox menggunakan OVA",
@@ -159,13 +165,14 @@ export const projects: Project[] = [
       "Monitoring log dan event security dari endpoint melalui dashboard SIEM",
       "Dokumentasi konfigurasi, menu fitur, dan hasil pengamatan dari agent"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/SIEM-Wazuh-Incident-Investigation"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/SIEM-Wazuh-Incident-Investigation"
   },
   {
     title: "Web Vulnerability Assessment with Arachni",
     imageUrl: "/project/project12.png",
     tech: ["Arachni", "Web Security", "Penetration Testing"],
     description: "Pengujian dan eksploitasi kelemahan aplikasi web menggunakan Arachni terhadap target vulnweb.rootbrain.com, dilengkapi dengan PoC dan laporan pentest.",
+    liveLink: "https://drive.google.com/file/d/1hZle3Y2kdSHt_2Hyttsp1GK8oEPsVBXJ/view?usp=sharing",
     slug: createSlug("Web Vulnerability Assessment with Arachni"),
     features: [
       "Scan otomatis dengan Arachni",
@@ -173,13 +180,14 @@ export const projects: Project[] = [
       "PoC exploitasi XSS dan SQLi",
       "Laporan VAPT profesional"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Web-Vulnerability-Arachni"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Web-Vulnerability-Arachni"
   }, 
   {
     title: "Wireless Honeypot using Airgeddon",
     imageUrl: "/project/project13.png",
     tech: ["Airgeddon", "Kali Linux", "Wireless Honeypot"],
     description: "Simulasi honeypot nirkabel dengan Airgeddon untuk menjebak dan menganalisis perangkat klien yang mencoba terhubung ke access point palsu.",
+    liveLink: "https://drive.google.com/file/d/1agbVpB0fHlqkMY7ks3PHY57Ym6zsP4fg/view?usp=sharing",
     slug: createSlug("Wireless Honeypot using Airgeddon"),
     features: [
       "Installasi Airgeddon di Kali Linux",
@@ -187,13 +195,14 @@ export const projects: Project[] = [
       "Evil Twin access point",
       "Captive portal phishing"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Honeypot-Airgeddon"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Honeypot-Airgeddon"
   },
   {
     title: "Web Server Hardening & ACL Configuration",
     imageUrl: "/project/project14.png",
     tech: ["Apache2", "Linux", ".htaccess", "ACL"],
     description: "Penerapan hardening pada web server Apache2 dan pengaturan akses kontrol berbasis IP dan otentikasi.",
+    liveLink: "https://drive.google.com/file/d/1AiiLLaGbR93GXnf5Cr-a-IOzX-sPLL2T/view?usp=sharing",
     slug: createSlug("Web Server Hardening & ACL Configuration"),
     features: [
       "Hide Apache version & OS info",
@@ -201,13 +210,14 @@ export const projects: Project[] = [
       "HTTP Authentication",
       "Custom .htaccess rules"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Webserver-Hardening"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Webserver-Hardening"
   },
   {
     title: "Daily Backup & Restore with UrBackup",
     imageUrl: "/project/project15.png",
     tech: ["UrBackup", "MySQL", "Incremental Backup"],
     description: "Implementasi backup harian (full & incremental) menggunakan UrBackup pada folder lokal dan database MySQL, serta simulasi restore data setelah kehilangan.",
+    liveLink: "https://drive.google.com/file/d/1Eg4lp45941GWTyhbhN42OAQRuBiim4cc/view?usp=sharing",
     slug: createSlug("Daily Backup & Restore with UrBackup"),
     features: [
       "Full & incremental backup",
@@ -215,13 +225,14 @@ export const projects: Project[] = [
       "Daily scheduled backup",
       "File & database recovery"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Backup-Restore-UrBackup"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Backup-Restore-UrBackup"
   },
   {
     title: "Email Encryption with PGP",
     imageUrl: "/project/project16.png",
     tech: ["Thunderbird", "GnuPG", "PGP"],
     description: "Penerapan kriptografi pada email untuk menjaga kerahasiaan dan integritas pesan dengan tanda tangan digital dan enkripsi menggunakan PGP di Thunderbird.",
+    liveLink: "https://drive.google.com/file/d/1cVFXy7Ss4CGhTKdCtvLIZACGI5DEHJP5/view?usp=sharing",
     slug: createSlug("Email Encryption with PGP"),
     features: [
       "Generate PGP key (Public & Private)",
@@ -229,6 +240,6 @@ export const projects: Project[] = [
       "Mengirim email bertandatangan digital",
       "Mengirim email terenkripsi (teks & lampiran)"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/PGP-Email-Encryption"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/PGP-Email-Encryption"
   }
 ];
