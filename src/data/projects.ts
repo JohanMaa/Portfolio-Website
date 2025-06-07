@@ -57,13 +57,14 @@ export const projects: Project[] = [
     tech: ["Wireshark", "TCP/UDP", "Networking"],
     description: "Analisis keamanan berbagai protokol jaringan dengan membandingkan versi aman dan tidak aman menggunakan teknik network sniffing melalui Wireshark.",
     slug: createSlug("Protocol Security Analysis with Wireshark"),
+    liveLink: "https://drive.google.com/file/d/1xri3W4-w1Ce9plsOcikW29RvJZKGSUPn/view?usp=sharing",
     features: [
       "Capture traffic protokol Telnet, FTP, HTTP, dan lainnya",
       "Analisis data terenkripsi vs tidak terenkripsi",
       "Identifikasi port default TCP/UDP",
       "Penyadapan komunikasi protokol di jaringan lokal"
     ],
-    github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Wireshark-Protocol-Sniffing"
+    // github: "https://github.com/JohanMaa/Cybersecurity-Practical-Lab/tree/main/Wireshark-Protocol-Sniffing"
   },
   {
     title: "Wireless Security Site Survey with Kismet",
