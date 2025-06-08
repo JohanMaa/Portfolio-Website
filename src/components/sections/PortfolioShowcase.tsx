@@ -7,7 +7,6 @@ import { Code, BadgeCheck, Atom } from "lucide-react"; // Ikon untuk tab
 import ProjectsSection from "./ProjectsSection";
 import Certificate from "./Certificate";
 import TechStack from "./TechStack";
-// import { SparklesCore } from "../ui/sparkles";
 
 const tabs = [
   { name: "Projects", icon: <Code className="w-4 h-4 mr-2" /> },
@@ -49,8 +48,8 @@ export default function PortfolioShowcase() {
             Portfolio Showcase
           </h2>
           <p className="text-base md:text-lg text-white/80">
-            Explore my journey through projects, certifications, and technical expertise.
-            Each section represents a milestone in my continuous learning path.
+          Explore my journey through projects, certifications, and technical expertise.
+          Each section represents a milestone in my continuous learning path.
           </p>
         </div>
 
@@ -89,7 +88,7 @@ export default function PortfolioShowcase() {
               </motion.div>
             )}
 
-            {activeSection === " gheeCertificates" && (
+            {activeSection === "Certificates" && (
               <motion.div
                 key="certificates"
                 initial={{ opacity: 0, y: 20 }}
