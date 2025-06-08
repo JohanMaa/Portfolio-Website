@@ -15,9 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="relative background-blobs overflow-x-hidden">
         {/* Holographic Particle Background */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* <div className="absolute inset-0 z-0 pointer-events-none">
           <SparklesWrapper />
-        </div>
+        </div> */}
 
         {/* Main App Content */}
         <div className="relative z-10">
