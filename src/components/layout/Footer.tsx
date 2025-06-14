@@ -58,8 +58,8 @@ export default function Footer() {
         <FooterSection title="Services" items={[
           { label: 'Web Development' },
           { label: 'Mobile Apps' },
-          { label: 'Penetration Testing' },
           { label: 'Vulnerability Assessment' },
+          { label: 'Digital Forensic' },
         ]} />
 
         {/* Contact Info */}
