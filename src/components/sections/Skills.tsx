@@ -7,29 +7,30 @@ const skills = [
     name: "Web Development",
     icon: FaCode,
     description:
-      "Building responsive and performant web applications.",
+      "Building responsive and structured web interfaces with a focus on security.",
     badges: ["React", "Next.js", "Tailwind CSS"],
   },
   {
     name: "Mobile Apps",
     icon: FaMobileAlt,
     description:
-      "Creating cross-platform apps with native performance.",
+      "Creating cross-platform apps with near-native performance and modern UI approaches.",
     badges: ["Flutter", "React Native", "Dart"],
   },
   {
-    name: "Penetration Testing",
+    name: "Vulnerability Assessment",
     icon: FaShieldAlt,
     description:
-      "Testing and securing applications from vulnerabilities.",
-    badges: ["Burp Suite", "Nmap", "Kali Linux"],
+      "Identifying and analyzing basic security flaws in systems and applications.",
+    badges: ["Nmap", "Nikto", "WhatWeb", "Burp Suite Community"],
   },
   {
-    name: "Digital Forensic",
+    name: "Digital Forensics",
     icon: TbBinaryTree,
     description:
-      "Investigating digital evidence and cybercrime cases.",
-    badges: ["Autopsy", "Volatility", "Wireshark"],
+      "Recovering deleted or damaged data and performing initial file-level analysis.",
+    badges: ["Autopsy", "Foremost", "TSK"],
+    // "PhotoRec","TestDisk"
   },
 ];
 

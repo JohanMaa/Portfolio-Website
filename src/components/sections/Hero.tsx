@@ -94,7 +94,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I develop secure-by-default web and mobile solutions, blending modern technology with strong security principles.
+            Turning curiosity into action through system exploitation and interface refinement.
           </motion.p>
           <motion.div
             className="mt-8 flex flex-wrap gap-4 items-center justify-center md:justify-start"
