@@ -68,7 +68,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-gray-400">
             <li className="flex items-center gap-2">
               <HiOutlineMail className="text-xl text-cyan-400" />
-              johanemaulana@gmail.com
+              johansendup@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <HiOutlinePhone className="text-xl text-green-400" />
