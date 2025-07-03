@@ -42,6 +42,21 @@ export const projects: Project[] = [
     github: "https://github.com/JohanMaa/Portfolio-Website",
   },
   {
+    title: "Planner Apps",
+    imageUrl: "/project/project17.png",
+    tech: ["Next.JS", "TailwindCSS"],
+    description: "Aplikasi mobile personal assistant untuk mengatur jadwal harian, mencatat to-do list, dan memberikan pengingat agar produktivitas tetap terjaga.",
+    slug: createSlug("Planner Apps"),
+    liveLink: "https://plannerxz.vercel.app/",
+    features: [
+      "To-Do List dengan status selesai",
+      "Reminder harian dan mingguan",
+      "Pengaturan jadwal penting & notifikasi",
+      "Tampilan kalender & kategori tugas",
+    ],
+    github: "https://github.com/JohanMaa/Aplikasi_Planner.git",
+  },
+  {
     title: "Mobile Water Monitor",
     imageUrl: "/project/project2.png",
     tech: ["Flutter", "MQTT", "Firebase"],
