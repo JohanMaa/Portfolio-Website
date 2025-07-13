@@ -1,126 +1,111 @@
-/* eslint-disable react/no-unknown-property */
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { SparklesCore } from "../ui/sparkles";
-import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
-import { SiJavascript, SiNextdotjs, SiTailwindcss, SiReact, SiNodedotjs } from "react-icons/si";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { FaGithub, FaLinkedin, FaArrowRight, FaCode, FaRocket } from "react-icons/fa";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
-interface TechStackItem {
-  name: string;
-  icon: React.ElementType;
-  color: string;
-}
+const expertise = [
+  { name: "System Security", icon: FaCode, color: "bg-red-700/60 hover:bg-red-600/80" },
+  { name: "UI/UX Design", icon: FaRocket, color: "bg-green-700/60 hover:bg-green-600/80" },
+  { name: "Web Development", icon: FaCode, color: "bg-blue-700/60 hover:bg-blue-600/80" },
+];
 
-interface ProfileProps {
-  imageSrc: string;
-  name: string;
-  role: string;
-  techStack: TechStackItem[];
-}
-
-const profile: ProfileProps = {
-  imageSrc: "/team/jm1.png",
-  name: "Johan Maulana",
-  role: "FrontEnd Developer",
-  techStack: [
-    { name: "React", icon: SiReact, color: "bg-blue-700/60 hover:bg-blue-600/80" },
-    { name: "Next.js", icon: SiNextdotjs, color: "bg-purple-700/60 hover:bg-purple-600/80" },
-    { name: "Tailwind", icon: SiTailwindcss, color: "bg-cyan-700/60 hover:bg-cyan-600/80" },
-    { name: "Node.js", icon: SiNodedotjs, color: "bg-slate-700/60 hover:bg-slate-600/80" },
-    { name: "JavaScript", icon: SiJavascript, color: "bg-yellow-600/60 hover:bg-yellow-500/80" },
-  ],
-};
+const ExpertiseBadge = ({ icon: Icon, name, color }: any) => (
+  <motion.span
+    className={`flex items-center gap-2 text-sm text-white px-4 py-2 rounded-lg transition duration-300 transform hover:scale-105 ${color}`}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+  >
+    <Icon className="text-lg" />
+    {name}
+  </motion.span>
+);
 
 export default function Hero() {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    setTilt({ x: y * 10, y: x * 10 });
-  };
-
-  const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
-  };
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const [text] = useTypewriter({
-    words: [
-      "FrontEnd Developer",
-      "Mobile App Builder",
-      "Penetration Tester",
-      "Vulnerability Assessment",
-      "Digital Forensic",
-      "Tech Enthusiast",
-    ],
+    words: ["Cybersecurity Expert", "UI/UX Innovator", "Web Developer", "Tech Visionary"],
     loop: true,
-    typeSpeed: 50,
-    deleteSpeed: 30,
-    delaySpeed: 1500,
+    typeSpeed: 60,
+    deleteSpeed: 40,
+    delaySpeed: 1200,
   });
 
   return (
-    <section
-      id="hero"
-      className="relative w-full min-h-screen flex items-center justify-center px-6 pb-20 overflow-hidden"
-    >
-      <div className="z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-        {/* Left: Text */}
-        <div className="text-center md:text-left flex-1">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pb-20" ref={ref}>
+      <div className="z-10 max-w-6xl mx-auto flex flex-col items-center gap-10">
+        <div className="text-center px-4 sm:px-8">
           <motion.h1
-            className="text-5xl md:text5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text mb-3"
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-4"
+            style={{ y: yText }}
             initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            Johan Maulana
+            Build Secure, Fast & Beautiful Web Experiences
           </motion.h1>
-          <motion.div
+
+          <motion.h2
+            className="mt-3 text-xl md:text-3xl font-medium text-white"
             initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-2 text-2xl md:text-4xl font-semibold text-white"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
           >
-            {text}
+            I'm Johan, a <span className="text-blue-400">{text}</span>
             <Cursor cursorStyle="|" />
-          </motion.div>
+          </motion.h2>
+
           <motion.p
-            className="mt-4 text-lg text-gray-300 max-w-xl"
+            className="mt-5 text-base md:text-lg text-gray-200 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
           >
-            Turning curiosity into action through system exploitation and interface refinement.
+            I blend cutting-edge security practices with elegant design to build impactful digital solutions.
           </motion.p>
+
           <motion.div
-            className="mt-8 flex flex-wrap gap-4 items-center justify-center md:justify-start"
+            className="mt-10 flex flex-wrap gap-6 justify-center"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
           >
             <a
-              href="#portfolio"
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-105 transition flex items-center gap-2"
+              href="#projects"
+              className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-700 text-white font-medium shadow-xl hover:scale-105 hover:shadow-purple-500/40 transition-transform duration-300 flex items-center gap-2"
             >
-              <FaArrowRight /> Lihat Proyek
+              <FaArrowRight /> Explore My Work
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 rounded-full border border-blue-400 text-blue-300 hover:bg-blue-800/30 transition"
+              className="px-8 py-3 rounded-lg border border-purple-400 text-purple-300 hover:bg-purple-800/20 hover:scale-105 transition-transform duration-300"
             >
-              Hubungi Saya
+              Get in Touch
             </a>
           </motion.div>
-          <div className="mt-6 flex gap-4 justify-center md:justify-start">
+
+          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4 md:gap-5 justify-center">
+            {expertise.map((item) => (
+              <ExpertiseBadge key={item.name} {...item} />
+            ))}
+          </div>
+
+          <div className="mt-8 flex gap-6 justify-center">
             <a
               href="https://github.com/JohanMaa"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-white text-xl"
+              aria-label="GitHub"
+              className="text-purple-400 hover:text-white text-2xl transition-transform hover:scale-110"
             >
               <FaGithub />
             </a>
@@ -128,83 +113,23 @@ export default function Hero() {
               href="https://www.linkedin.com/in/johan-maulana-26b051305/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-white text-xl"
+              aria-label="LinkedIn"
+              className="text-purple-400 hover:text-white text-2xl transition-transform hover:scale-110"
             >
               <FaLinkedin />
             </a>
           </div>
+
+          <motion.div
+            className="mt-16 text-white text-2xl animate-bounce"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+            viewport={{ once: true }}
+          >
+            ↓
+          </motion.div>
         </div>
-
-        {/* Right: Profile Card with Removed Name */}
-        <motion.div
-          className="flex-1 relative p-6 text-white max-w-sm mx-auto rounded-3xl shadow-2xl border border-cyan-400/20 overflow-hidden"
-          initial={{ opacity: 0, y: 40, rotateX: 15 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
-          whileHover={{
-            scale: 1.07,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
-            transition: { duration: 0.4 },
-          }}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          style={{
-            perspective: 1100,
-            transformStyle: "preserve-3d",
-            transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-          }}
-        >
-          {/* Background Layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-500/10 pointer-events-none" />
-          <div className="absolute inset-0 z-0">
-            {/* <SparklesCore
-              background="transparent"
-              minSize={0.4}
-              maxSize={1}
-              particleDensity={100}
-              className="w-full h-full"
-            /> */}
-          </div>
-
-          {/* Profile Card Content */}
-          <div className="relative z-20 text-center space-y-5">
-            <motion.div
-              className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-blue-400 shadow-lg"
-              style={{ transformStyle: "preserve-3d" }}
-              initial={{ scale: 0.85, y: 15 }}
-              animate={{ scale: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
-              <Image
-                src={profile.imageSrc}
-                alt={profile.name}
-                width={112}
-                height={112}
-                className="object-cover rounded-full"
-                priority
-              />
-            </motion.div>
-
-            {/* Name Removed */}
-            <p className="text-cyan-400 font-medium tracking-wide">{profile.role}</p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap justify-center gap-4 mt-3">
-              {profile.techStack.map(({ name, icon: Icon, color }) => (
-                <motion.div
-                  key={name}
-                  className={`w-12 h-12 rounded-full flex items-center justify-center cursor-default shadow-lg transition-transform hover:scale-110 ${color} text-white`}
-                  title={name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + Math.random() * 0.3 }}
-                >
-                  <Icon className="text-xl" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
