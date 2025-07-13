@@ -5,8 +5,8 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import React, { useRef } from "react";
 
 const expertise = [
-  { name: "Offensife Security", icon: FaCode, color: "bg-red-700/60 hover:bg-red-600/80" },
-  { name: "Mobile App Development", icon: FaRocket, color: "bg-green-700/60 hover:bg-green-600/80" },
+  { name: "Mobile App Development", icon: FaCode, color: "bg-red-700/60 hover:bg-red-600/80" },
+  { name: "Offensife Security", icon: FaRocket, color: "bg-green-700/60 hover:bg-green-600/80" },
   { name: "Web Development", icon: FaCode, color: "bg-blue-700/60 hover:bg-blue-600/80" },
 ];
 
