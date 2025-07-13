@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 
 const expertise = [
   { name: "Mobile App Development", icon: FaCode, color: "bg-red-700/60 hover:bg-red-600/80" },
-  { name: "Offensife Security", icon: FaRocket, color: "bg-green-700/60 hover:bg-green-600/80" },
+  { name: "Offensive Security", icon: FaRocket, color: "bg-green-700/60 hover:bg-green-600/80" },
   { name: "Web Development", icon: FaCode, color: "bg-blue-700/60 hover:bg-blue-600/80" },
 ];
 
@@ -29,7 +29,7 @@ export default function Hero() {
   const yText = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const [text] = useTypewriter({
-    words: ["Cybersecurity Enthusiast", "Web Developer","Mobile App Developer", "Tech Visionary"],
+    words: ["Cybersecurity Enthusiast", "Web Developer", "Mobile App Developer", "Tech Visionary"],
     loop: true,
     typeSpeed: 60,
     deleteSpeed: 40,
@@ -40,6 +40,7 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pb-20" ref={ref}>
       <div className="z-10 max-w-6xl mx-auto flex flex-col items-center gap-10">
         <div className="text-center px-4 sm:px-8">
+          {/* Headline */}
           <motion.h1
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-4"
             style={{ y: yText }}
@@ -48,35 +49,51 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Empowering the digital world through secure development, offensive security insights, and creative design across web and mobile.
+            <span className="text-blue-400">Code</span>.
+            <span className="text-green-400">Hack</span>.
+            <span className="text-purple-400">Build</span>.
           </motion.h1>
 
-          <motion.h2
-            className="mt-3 text-xl md:text-3xl font-medium text-white"
+          {/* Subheadline */}
+          {/* <motion.h2
+            className="mt-3 text-lg md:text-2xl font-medium text-white"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            I'm Johan, a <span className="text-blue-400">{text}</span>
-            <Cursor cursorStyle="|" />
-          </motion.h2>
+            Empowering the future with offensive security, modern web, and mobile app development.
+          </motion.h2> */}
 
-          <motion.p
-            className="mt-5 text-base md:text-lg text-gray-200 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
+          {/* Typewriter */}
+          <motion.h3
+            className="mt-4 text-xl md:text-3xl font-medium text-white"
+            initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I blend cutting-edge security practices with elegant design to build impactful digital solutions.
+            I'm Johan, a <span className="text-blue-400">{text}</span>
+            <Cursor cursorStyle="|" />
+          </motion.h3>
+
+          {/* Deskripsi pendek */}
+          <motion.p
+            className="mt-5 text-base md:text-lg text-gray-200 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Empowering the future with offensive security, modern web, and mobile app development.
           </motion.p>
 
+          {/* Tombol CTA */}
           <motion.div
             className="mt-10 flex flex-wrap gap-6 justify-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4 }}
             viewport={{ once: true }}
           >
             <a
@@ -93,12 +110,14 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          {/* Badge skill */}
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4 md:gap-5 justify-center">
             {expertise.map((item) => (
               <ExpertiseBadge key={item.name} {...item} />
             ))}
           </div>
 
+          {/* Social media */}
           <div className="mt-8 flex gap-6 justify-center">
             <a
               href="https://github.com/JohanMaa"
@@ -120,6 +139,7 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Scroll down indicator */}
           <motion.div
             className="mt-16 text-white text-2xl animate-bounce"
             initial={{ opacity: 0 }}
