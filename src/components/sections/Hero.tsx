@@ -48,7 +48,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Build Secure, Fast & Beautiful Web Experiences
+            Empowering the digital world through secure development, offensive security insights, and creative design across web and mobile.
           </motion.h1>
 
           <motion.h2
