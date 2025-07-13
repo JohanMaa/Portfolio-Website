@@ -29,7 +29,7 @@ export default function Hero() {
   const yText = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const [text] = useTypewriter({
-    words: ["Cybersecurity Expert", "UI/UX Innovator", "Web Developer", "Tech Visionary"],
+    words: ["Cybersecurity Enthusiast", "Web Developer","Mobile App Developer", "Tech Visionary"],
     loop: true,
     typeSpeed: 60,
     deleteSpeed: 40,
