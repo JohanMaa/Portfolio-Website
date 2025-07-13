@@ -5,8 +5,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import BackgroundBlobs from "@/components/BackgroundBlobs";
 
 export const metadata = {
-  title: "Johan Portfolio",
-  description: "Personal portfolio built with Next.js, Tailwind, and TypeScript",
+  title: "Johan | Portfolio",
+  description: "Personal portfolio",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

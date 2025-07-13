@@ -1,8 +1,13 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
+  darkMode: "class", // Aktifkan dark mode via class
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}", // Tambahkan ini jika pakai App Router
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -13,19 +18,6 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config;
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: "class", // PENTING!
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*.{js,ts,jsx,tsx}", // Pastikan ini ada
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
 };
 
+export default config;
