@@ -29,7 +29,7 @@ export const projects: Project[] = [
   },
   {
     title: "Personal Portfolio Website",
-    imageUrl: "/project/project3.png",
+    imageUrl: "/project/project19.png",
     tech: ["Next.js", "TailwindCSS", "TypeScript"],
     description: "A modern and responsive personal portfolio website showcasing my projects, skills, and achievements.",
     slug: createSlug("Personal Portfolio Website"),
@@ -40,6 +40,22 @@ export const projects: Project[] = [
       "Smooth animations and transitions"
     ],
     github: "https://github.com/JohanMaa/Portfolio-Website",
+  },
+  {
+    title: "Penetration Testing - Website Kominfo Sulsel",
+    imageUrl: "/project/project18.png",
+    tech: ["Kali Linux", "Nmap", "WhatWeb", "Nikto", "SQLMap", "Burp Suite"],
+    description: "Pengujian keamanan aplikasi web milik instansi pemerintah daerah (Kominfo Sulsel) untuk mengidentifikasi informasi sistem, celah keamanan, serta penyusunan PoC (Proof of Concept) eksploitasi.",
+    slug: createSlug("Penetration Testing Kominfo Sulsel"),
+    features: [
+      "Information Gathering (WHOIS, DNS, banner, port)",
+      "Identifikasi Teknologi & Struktur Website",
+      "Deteksi Web Vulnerability (XSS, SQLi, Clickjacking)",
+      "Exploitasi terbatas & bukti PoC",
+      "Laporan akhir dalam format pentest report PDF"
+    ],
+    github: "", // Kosongkan jika tidak di-publish publik
+    liveLink: "", // Dikosongkan untuk menjaga privasi target
   },
   {
     title: "Planner Apps",
