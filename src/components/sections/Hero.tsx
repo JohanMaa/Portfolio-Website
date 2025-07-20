@@ -168,7 +168,7 @@ const Hero: React.FC = () => {
             {[
               { icon: <FaGithub />, href: "https://github.com/JohanMaa", label: "GitHub" },
               { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/johan-maulana-26b051305/", label: "LinkedIn" },
-              { icon: <FaInstagram />, href: "https://instagram.com/yourusername", label: "Instagram" },
+              { icon: <FaInstagram />, href: "https://instagram.com/jhnmlna._", label: "Instagram" },
             ].map((item, i) => (
               <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit Johan's ${item.label}`} className="text-purple-400 hover:text-white text-3xl transition-transform hover:scale-110 relative group">
                 {item.icon}
