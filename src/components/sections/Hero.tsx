@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
       id="hero"
       aria-label="Hero section of Johan portfolio"
       ref={ref}
-      className="relative min-h-screen flex items-start justify-start px-6 py-[7rem] pt-[calc(7rem+4vh)] overflow-hidden"
+      className="relative h-auto flex items-start justify-start px-6 pt-[calc(7rem+4vh)] pb-4 sm:pb-6 md:pb-8 overflow-hidden"
     >
       <div className="z-10 w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-start gap-12">
         <div className="w-full md:w-1/2 text-left px-2 sm:px-4">
