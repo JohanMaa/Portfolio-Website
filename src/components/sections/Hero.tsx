@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I'm <span className="text-blue-400">{text}</span>
+            I'm a <span className="text-blue-400">{text}</span>
             <Cursor cursorStyle="|" />
           </motion.h2>
 
