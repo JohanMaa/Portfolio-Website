@@ -23,7 +23,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TensorFlow.js", "TailwindCSS"],
     description: "Aplikasi yang mengonversi sampah anorganik menjadi saldo digital untuk mendorong gaya hidup ramah lingkungan.",
     slug: createSlug("M-Banking Sampah"),
-    // liveLink: "https://github.com/JohanMaa/Mbanking_Sampah.git",
+    liveLink: "http://echonect.vercel.app",
     features: ["Konversi sampah ke saldo", "Dashboard real-time", "Notifikasi pengguna"],
     github: "https://github.com/JohanMaa/Mbanking_Sampah.git",
   },

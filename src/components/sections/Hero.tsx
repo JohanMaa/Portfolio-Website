@@ -10,32 +10,13 @@ import {
 } from "react-icons/fa";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
-const terminalPrompts = [
-  [
-    "└──(johan㉿kali)-[~/redteam]",
-    "❯ nmap -sC -sV 10.10.11.100",
-    "Starting Nmap Scan...",
-    "PORT     STATE SERVICE VERSION",
-    "22/tcp   open  ssh     OpenSSH 8.2p1",
-    "80/tcp   open  http    Apache httpd 2.4.41",
-    "Exploit ideas loading..."
-  ],
-  [
-    "└──(johan㉿kali)-[~/pentest]",
-    "❯ gobuster dir -u http://target.com -w common.txt",
-    "/admin        (Status: 301)",
-    "/login        (Status: 200)",
-    "Enumeration in progress..."
-  ],
-  [
-    "└──(johan㉿kali)-[~/exploits]",
-    "❯ msfconsole",
-    "Metasploit Framework Initialized",
-    "❯ use exploit/multi/http",
-    "[*] Exploit loaded",
-    "❯ run",
-    "[*] Sending payload..."
-  ]
+const terminalLines = [
+  "❯ nmap -sC -sV 10.10.11.100",
+  "Starting Nmap Scan...",
+  "PORT     STATE SERVICE VERSION",
+  "22/tcp   open  ssh     OpenSSH 8.2p1",
+  "80/tcp   open  http    Apache httpd 2.4.41",
+  "Exploit ideas loading..."
 ];
 
 const Hero: React.FC = () => {
@@ -63,14 +44,40 @@ const Hero: React.FC = () => {
     delaySpeed: 1000,
   });
 
-  const [terminalIndex, setTerminalIndex] = useState(0);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
+  const [typedLine, setTypedLine] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTerminalIndex((prev) => (prev + 1) % terminalPrompts.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentFullLine = terminalLines[currentLineIndex];
+    let charIndex = 0;
+
+    const typeLine = () => {
+      if (charIndex <= currentFullLine.length) {
+        setTypedLine(currentFullLine.slice(0, charIndex));
+        charIndex++;
+        setTimeout(typeLine, 30); // Kecepatan ketik
+      } else {
+        setTimeout(() => {
+          setDisplayedLines((prev) => [...prev, currentFullLine]);
+          setTypedLine("");
+
+          if (currentLineIndex < terminalLines.length - 1) {
+            setCurrentLineIndex((prev) => prev + 1);
+          } else {
+            setTimeout(() => {
+              setDisplayedLines([]);
+              setCurrentLineIndex(0);
+            }, 2000); // Jeda sebelum ulang dari awal
+          }
+        }, 800); // Jeda antar baris
+      }
+    };
+
+    typeLine();
+  }, [currentLineIndex]);
+
+  const showCursor = typedLine.length > 0;
 
   return (
     <section
@@ -109,9 +116,7 @@ const Hero: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: true }}
-          >
-            {/* I'm Johan — a passionate developer and cybersecurity enthusiast. Driven, learning fast, and building real things. */}
-          </motion.p>
+          ></motion.p>
 
           <motion.div
             className="mt-3 text-sm md:text-base text-green-400 font-mono animate-typing overflow-hidden whitespace-nowrap"
@@ -127,7 +132,7 @@ const Hero: React.FC = () => {
             {[
               { label: "#OffensiveSecurity", color: "purple" },
               { label: "#WebDev", color: "green" },
-              { label: "#MobileApps", color: "blue" }
+              { label: "#MobileApps", color: "blue" },
             ].map((tag, i) => (
               <span
                 key={i}
@@ -166,13 +171,36 @@ const Hero: React.FC = () => {
 
           <div className="mt-8 flex gap-6">
             {[
-              { icon: <FaGithub />, href: "https://github.com/JohanMaa", label: "GitHub" },
-              { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/johan-maulana-26b051305/", label: "LinkedIn" },
-              { icon: <FaInstagram />, href: "https://instagram.com/jhnmlna._", label: "Instagram" },
+              {
+                icon: <FaGithub />,
+                href: "https://github.com/JohanMaa",
+                label: "GitHub",
+              },
+              {
+                icon: <FaLinkedin />,
+                href: "https://www.linkedin.com/in/johan-maulana-26b051305/",
+                label: "LinkedIn",
+              },
+              {
+                icon: <FaInstagram />,
+                href: "https://instagram.com/jhnmlna._",
+                label: "Instagram",
+              },
             ].map((item, i) => (
-              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit Johan's ${item.label}`} className="text-purple-400 hover:text-white text-3xl transition-transform hover:scale-110 relative group">
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit Johan's ${item.label}`}
+                className="text-purple-400 hover:text-white text-3xl transition-transform hover:scale-110 relative group"
+              >
                 {item.icon}
-                <span role="tooltip" aria-hidden="true" className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-50">
+                <span
+                  role="tooltip"
+                  aria-hidden="true"
+                  className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-50"
+                >
                   {item.label}
                 </span>
               </a>
@@ -186,13 +214,15 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.5, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="text-sm md:text-base font-mono">Scroll to explore</span>
+            <span className="text-sm md:text-base font-mono">
+              Scroll to explore
+            </span>
             <FaArrowDown className="text-2xl neon-glow animate-bounce mt-2" />
           </motion.div>
         </div>
 
         <motion.div
-          className="w-full md:w-1/2 h-[300px] md:h-[400px] bg-[#0f1117] border border-green-500/40 rounded-lg p-6 font-mono text-green-400 text-sm shadow-neon backdrop-blur overflow-y-auto transition-all duration-500"
+          className="w-full md:w-1/2 h-[300px] md:h-[400px] bg-[#0f1117] border border-green-500/40 rounded-lg p-6 font-mono text-green-400 text-sm shadow-neon backdrop-blur overflow-y-auto"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -203,12 +233,40 @@ const Hero: React.FC = () => {
             <span className="w-2 h-2 bg-yellow-500 rounded-full" />
             <span className="w-2 h-2 bg-green-500 rounded-full" />
           </div>
-          <div className="whitespace-pre-wrap text-sm leading-relaxed transition-all duration-700 ease-in-out">
-            {terminalPrompts[terminalIndex].map((line, i) => (
-              <p key={i} className={i === 1 ? "text-blue-400" : i >= 3 && i <= 5 ? "text-white" : i === 4 ? "text-yellow-400" : "text-green-400"}>
+          <div className="whitespace-pre-wrap text-sm leading-relaxed">
+            <p className="text-green-400">└──(johan㉿kali)-[~/redteam]</p>
+            {displayedLines.map((line, index) => (
+              <p
+                key={index}
+                className={
+                  index === 0
+                    ? "text-blue-400"
+                    : index === 3
+                    ? "text-white"
+                    : index === 4
+                    ? "text-yellow-400"
+                    : "text-green-400"
+                }
+              >
                 {line}
               </p>
             ))}
+            {typedLine && (
+              <p
+                className={
+                  currentLineIndex === 0
+                    ? "text-blue-400"
+                    : currentLineIndex === 3
+                    ? "text-white"
+                    : currentLineIndex === 4
+                    ? "text-yellow-400"
+                    : "text-green-400"
+                }
+              >
+                {typedLine}
+                {showCursor && <Cursor cursorStyle="|" />}
+              </p>
+            )}
           </div>
         </motion.div>
       </div>
