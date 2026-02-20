@@ -30,8 +30,8 @@ const Hero: React.FC = () => {
       "Penetration Tester",
       "Mobile App Developer",
       "Web Developer",
-      "Vulnerability Assessment",
-      "Digital Forensics",
+      // "Vulnerability Assessment",
+      // "Digital Forensics",
     ],
     []
   );
