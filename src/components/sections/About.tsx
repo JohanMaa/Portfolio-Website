@@ -80,7 +80,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="Johan Maulana.pdf"
+                href="Johan Maulana-resume.pdf"
                 download
                 className="inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-transform duration-300 gap-2"
               >

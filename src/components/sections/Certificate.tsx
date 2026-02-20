@@ -40,6 +40,38 @@ export default function Certificate() {
 
   const certificates: Certificate[] = [
     {
+      title: "Certificate of Completion – SOC Analyst Internship",
+      issuer: "PT Dua Empat Tujuh (Solusi247)",
+      date: "2026-03-15",
+      imageUrl: "/J4.png",
+      description: "Awarded upon completion of the SOC Analyst internship at PT Dua Empat Tujuh (Solusi247). Involved in daily security monitoring activities, log analysis, alert review, and initial incident investigation within the Security Operations Center (SOC) environment to support organizational cybersecurity operations.",
+      driveLink: "https://drive.google.com/file/d/1T6eAyAE7jXjsyWlkgsQBkFC348JurAIe/view?usp=sharing",
+    },
+    {
+      title: "Certificate of Appreciation for Contribution in Vulnerability Assessment",
+      issuer: "Diskominfo Sulawesi Selatan",
+      date: "2024-12-15",
+      imageUrl: "/J3.png",
+      description: "Awarded a certificate of appreciation for contributing to a vulnerability assessment project, recognizing efforts in identifying and analyzing potential security weaknesses.",
+      driveLink: "https://drive.google.com/file/d/19P4tNbCz62rPdd8pjvAesNp18nbf8KBx/view?usp=sharing",
+    },
+        {
+      title: "Certificate of Completion – Basic Cloud & Generative AI on AWS",
+      issuer: "Dicoding Indonesia",
+      date: "2025-12-26",
+      imageUrl: "/J5.png",
+      description: "Awarded upon completion of the 'Belajar Dasar Cloud dan Gen AI di AWS' course by Dicoding. Covered fundamental cloud computing concepts, core AWS services, and an introduction to Generative AI implementation within cloud environments.",
+      driveLink: "https://drive.google.com/file/d/18Sb3vOitUe4WdNF2IMwzIQ8HlAIuBOkw/view?usp=sharing",
+    },
+    {
+      title: "Certificate of Completion – Basic JavaScript Programming",
+      issuer: "Dicoding Indonesia",
+      date: "2025-12-26",
+      imageUrl: "/J6.png",
+      description: "Awarded upon completion of the 'Belajar Dasar Pemrograman JavaScript' course by Dicoding. Covered fundamental programming concepts including variables, control structures, functions, and basic JavaScript implementation for web development.",
+      driveLink: "https://drive.google.com/file/d/1gtdlhW44JuKTzUdtzn85HdHg0biOi50d/view?usp=sharing",
+    },
+    {
       title: "Internship Completion Certificate",
       issuer: "PT. Gama Multi Usaha Mandiri",
       date: "2024-12-15",
@@ -54,14 +86,6 @@ export default function Certificate() {
       imageUrl: "/J2.png",
       description: "Awarded for active participation, demonstrating enthusiasm and commitment to continuous learning",
       driveLink: "https://drive.google.com/file/d/1onpH-bj5xeUd4Y1xMK3uEZD4kZPp_0wp/view?usp=sharing",
-    },
-    {
-      title: "Certificate of Appreciation for Contribution in Vulnerability Assessment",
-      issuer: "Diskominfo Sulawesi Selatan",
-      date: "2024-12-15",
-      imageUrl: "/J3.png",
-      description: "Awarded a certificate of appreciation for contributing to a vulnerability assessment project, recognizing efforts in identifying and analyzing potential security weaknesses.",
-      driveLink: "https://drive.google.com/file/d/19P4tNbCz62rPdd8pjvAesNp18nbf8KBx/view?usp=sharing",
     },
   ];
 

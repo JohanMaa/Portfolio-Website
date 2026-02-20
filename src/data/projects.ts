@@ -82,6 +82,16 @@ export const projects: Project[] = [
     features: ["Monitoring suhu", "Data pH air", "Notifikasi otomatis"],
     github: "https://github.com/JohanMaa/Monitoring-Kolam-Ikan.git",
   },
+    {
+    title: "Monitoring Kompos",
+    imageUrl: "",
+    tech: ["React", "MQTT", "Firebase", "JavaScript"],
+    description: "Sistem monitoring kompos berbasis JavaScript dan MQTT yang menampilkan data sensor seperti suhu dan volume secara real-time.",
+    slug: createSlug("Mobile Water Monitor"),
+    liveLink: "https://reract-monitoring-kompos.vercel.app/",
+    features: ["Monitoring suhu", "Volume Kompos", "Edukasi pengelolaan kompos"],
+    github: "https://github.com/JohanMaa/Monitoring-Kompos.git",
+  },
   {
     title: "Protocol Security Analysis with Wireshark",
     imageUrl: "/project/project5.png",
